@@ -17,8 +17,10 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", '"https://api.themoviedb.org/3/"')
+        buildConfigField("String", "API_KEY", '"8b904530a7aced766995fa063ed27355"')
     }
 
     buildTypes {
@@ -84,5 +86,16 @@ dependencies {
 
     // Loading Progress - SpinKit
     implementation "com.github.ybq:Android-SpinKit:$spin_kit_version"
+
+    //Lifecycle Extensions
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    //ViewModel & LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    //DataStore
+    implementation "androidx.datastore:datastore-preferences:$data_store_version"
 
 }
