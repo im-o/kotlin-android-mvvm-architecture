@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
-    private val movieViewModel by viewModels<MovieViewModel>()
+    private val viewModel by viewModels<MovieViewModel>()
 
     override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
 
@@ -22,15 +22,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun initObservers() {
-        movieViewModel.getMoviesApiCall()
-        movieViewModel.movies.observe(this, {
+        viewModel.getMoviesApiCall()
+        viewModel.movies.observe(this, {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showView(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
         })
-        movieViewModel.getMoviesLocal().observe(this, {
+        viewModel.getMoviesLocal().observe(this, {
             var text: String? = ""
             for (data in it) text += getString(R.string.movie_desc, data.id, data.title)
             if (it.size > 0) binding.localDataTV.text = text else binding.localDataTV.text = getString(R.string.empty_data)
@@ -50,7 +50,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         var text: String? = ""
         for (data in movieResponse.movieResults ?: return) text += getString(R.string.movie_desc, data.id, data.title)
         binding.remoteDataTV.text = text
-        movieViewModel.insertMoviesLocal(movieResponse)
+        viewModel.insertMoviesLocal(movieResponse)
 
         myToast(getString(R.string.show_data, movieResponse.totalResults.toString()))
         showLoading(false)
@@ -59,8 +59,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun initClick() {
         binding.hintRemoteDataTV.setOnClickListener {
             binding.remoteDataTV.text = getString(R.string.empty_data)
-            movieViewModel.getMoviesApiCall()
+            viewModel.getMoviesApiCall()
         }
-        binding.hintLocalDataTV.setOnClickListener { movieViewModel.clearMovies() }
+        binding.hintLocalDataTV.setOnClickListener { viewModel.clearMovies() }
     }
 }
