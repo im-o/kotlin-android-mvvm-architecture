@@ -1,9 +1,11 @@
 package com.rivaldy.id.mvvmtemplateapp.data
 
+import androidx.lifecycle.LiveData
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.AppDbHelper
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.DbHelper
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.PreferencesHelper
+import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import com.rivaldy.id.mvvmtemplateapp.data.remote.ApiHelper
 import com.rivaldy.id.mvvmtemplateapp.data.remote.AppApiHelper
@@ -20,6 +22,11 @@ class AppDataManager @Inject constructor(
     private val pref: AppPreferencesHelper
 ) : DataManager {
 
+    /** Remote Data - Fetch API **/
+    override suspend fun getMoviesApiCall(): MovieResponse {
+        return api.getMoviesApiCall()
+    }
+
     /** Local Data - Room Local Storage **/
     override suspend fun clearMovies() {
         db.clearMovies()
@@ -33,9 +40,13 @@ class AppDataManager @Inject constructor(
         db.insertMovie(movie)
     }
 
-    override fun getAllMovie() = db.getAllMovie()
+    override fun getAllMovie(): LiveData<MutableList<MovieEntity>> {
+        return db.getAllMovie()
+    }
 
-    override fun getMovieById(movieId: Int) = db.getMovieById(movieId)
+    override fun getMovieById(movieId: Int): LiveData<MovieEntity> {
+        return db.getMovieById(movieId)
+    }
 
     override suspend fun deleteMovie(movie: MovieEntity) {
         db.deleteMovie(movie)
@@ -45,7 +56,20 @@ class AppDataManager @Inject constructor(
         db.deleteMovieById(movieId)
     }
 
-    /** Remote Data - Fetch API **/
-    override suspend fun getMoviesApiCall() = api.getMoviesApiCall()
+    /** Local Data - SharedPreference Storage **/
+    override fun setAccessToken(token: String) {
+        TODO("Not yet implemented")
+    }
 
+    override fun getAccessToken(): String {
+        TODO("Not yet implemented")
+    }
+
+    override fun setCurrentUserId(id: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getCurrentUserId(): String {
+        TODO("Not yet implemented")
+    }
 }

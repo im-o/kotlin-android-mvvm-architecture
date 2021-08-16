@@ -17,7 +17,7 @@ import dagger.hilt.android.components.ApplicationComponent
 object RepositoryModule {
 
     @Provides
-    fun provideMovieRepository(appDataManager: AppDataManager): DataRepository {
+    fun provideDataRepository(appDataManager: AppDataManager): DataRepository {
         return DataRepository(appDataManager)
     }
 }

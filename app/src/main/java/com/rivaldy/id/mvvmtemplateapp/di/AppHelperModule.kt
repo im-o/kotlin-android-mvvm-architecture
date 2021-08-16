@@ -1,9 +1,9 @@
 package com.rivaldy.id.mvvmtemplateapp.di
 
+import android.content.SharedPreferences
 import com.rivaldy.id.mvvmtemplateapp.data.AppDataManager
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.AppDatabase
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.AppDbHelper
-import com.rivaldy.id.mvvmtemplateapp.data.local.db.DbHelper
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
 import com.rivaldy.id.mvvmtemplateapp.data.remote.ApiService
 import com.rivaldy.id.mvvmtemplateapp.data.remote.AppApiHelper
@@ -25,13 +25,13 @@ object AppHelperModule {
     fun provideAppDbHelper(appDatabase: AppDatabase) = AppDbHelper(appDatabase)
 
     @Provides
-    fun provideAppPreferencesHelper() = AppPreferencesHelper()
+    fun provideAppPreferencesHelper(sharedPref: SharedPreferences) = AppPreferencesHelper(sharedPref)
 
     @Provides
     fun providesAppApiHelper(apiService: ApiService) = AppApiHelper(apiService)
 
     @Provides
-    fun providesAppDataManager(appApiHelper: AppApiHelper, appDbHelper: AppDbHelper, appPreferencesHelper: AppPreferencesHelper) : AppDataManager {
+    fun providesAppDataManager(appApiHelper: AppApiHelper, appDbHelper: AppDbHelper, appPreferencesHelper: AppPreferencesHelper): AppDataManager {
         return AppDataManager(appApiHelper, appDbHelper, appPreferencesHelper)
     }
 }

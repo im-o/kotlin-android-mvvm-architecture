@@ -7,6 +7,7 @@ package com.rivaldy.id.mvvmtemplateapp.utils
 
 object UtilConstants {
     // STRING
+    const val SHARED_PREF_NAME = "rival_shared_pref"
     const val LOG_MESSAGE = "LOG_MESSAGE"
     const val NO_INTERNET = "NO_INTERNET"
 

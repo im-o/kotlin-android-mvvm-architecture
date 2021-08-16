@@ -9,4 +9,8 @@ import kotlinx.coroutines.flow.Flow
  **/
 
 interface PreferencesHelper {
+    fun setAccessToken(token: String)
+    fun getAccessToken(): String
+    fun setCurrentUserId(id: String)
+    fun getCurrentUserId(): String
 }
