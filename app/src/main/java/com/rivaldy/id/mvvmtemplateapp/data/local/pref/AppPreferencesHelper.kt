@@ -8,16 +8,4 @@ import kotlinx.coroutines.flow.Flow
  * Find me on my Github -> https://github.com/im-o
  **/
 class AppPreferencesHelper : PreferencesHelper {
-
-//    override suspend fun insertPrefAllMovie(movies: MutableList<MoviePref>) {
-//
-//    }
-//
-//    override suspend fun loadPrefAllMovie(): Flow<MutableList<MoviePref>> {
-//
-//    }
-//
-//    override suspend fun deletePrefAllMovie() {
-//
-//    }
 }

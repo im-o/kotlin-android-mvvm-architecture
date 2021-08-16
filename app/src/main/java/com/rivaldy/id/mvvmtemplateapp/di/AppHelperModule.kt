@@ -31,7 +31,7 @@ object AppHelperModule {
     fun providesAppApiHelper(apiService: ApiService) = AppApiHelper(apiService)
 
     @Provides
-    fun providesAppDataManager(appDbHelper: AppDbHelper, appPreferencesHelper: AppPreferencesHelper, appApiHelper: AppApiHelper) : AppDataManager {
-        return AppDataManager(appDbHelper, appPreferencesHelper, appApiHelper)
+    fun providesAppDataManager(appApiHelper: AppApiHelper, appDbHelper: AppDbHelper, appPreferencesHelper: AppPreferencesHelper) : AppDataManager {
+        return AppDataManager(appApiHelper, appDbHelper, appPreferencesHelper)
     }
 }

@@ -1,9 +1,12 @@
 package com.rivaldy.id.mvvmtemplateapp.data
 
+import com.rivaldy.id.mvvmtemplateapp.data.local.db.AppDbHelper
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.DbHelper
+import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.PreferencesHelper
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import com.rivaldy.id.mvvmtemplateapp.data.remote.ApiHelper
+import com.rivaldy.id.mvvmtemplateapp.data.remote.AppApiHelper
 import javax.inject.Inject
 
 /**
@@ -12,9 +15,9 @@ import javax.inject.Inject
  **/
 
 class AppDataManager @Inject constructor(
-    private val db: DbHelper,
-    private val pref: PreferencesHelper,
-    private val api: ApiHelper
+    private val api: AppApiHelper,
+    private val db: AppDbHelper,
+    private val pref: AppPreferencesHelper
 ) : DataManager {
 
     /** Local Data - Room Local Storage **/

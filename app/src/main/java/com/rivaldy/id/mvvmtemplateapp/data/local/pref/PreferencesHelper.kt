@@ -9,7 +9,4 @@ import kotlinx.coroutines.flow.Flow
  **/
 
 interface PreferencesHelper {
-//    suspend fun insertPrefAllMovie(movies: MutableList<MoviePref>)
-//    suspend fun loadPrefAllMovie(): Flow<MutableList<MoviePref>>
-//    suspend fun deletePrefAllMovie()
 }
