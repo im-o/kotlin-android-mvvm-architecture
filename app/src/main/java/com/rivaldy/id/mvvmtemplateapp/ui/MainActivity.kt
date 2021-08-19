@@ -7,7 +7,6 @@ import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
 import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import com.rivaldy.id.mvvmtemplateapp.databinding.ActivityMainBinding
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExceptions.handleApiError
-import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.isVisible
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.myToast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,10 +34,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             for (data in it) text += getString(R.string.movie_desc, data.id, data.title)
             if (it.size > 0) binding.localDataTV.text = text else binding.localDataTV.text = getString(R.string.empty_data)
         }
-    }
-
-    override fun showLoading(isShown: Boolean) {
-        binding.loadingSKV.isVisible(isShown)
     }
 
     override fun showFailure(failure: DataResource.Failure) {

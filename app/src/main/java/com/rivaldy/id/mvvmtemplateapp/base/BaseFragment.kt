@@ -1,5 +1,6 @@
 package com.rivaldy.id.mvvmtemplateapp.base
 
+import android.app.Dialog
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,7 +23,7 @@ abstract class BaseFragment<viewBinding : ViewBinding>(
     private var _binding: viewBinding? = null
     val binding get() = _binding!!
 
-    private var progressDialog: ProgressDialog? = null
+    private val progressDialog: Dialog by lazy { UtilDialog.setProgressDialog(requireContext()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = inflate.invoke(inflater, container!!, false)
@@ -39,8 +40,6 @@ abstract class BaseFragment<viewBinding : ViewBinding>(
 
     abstract fun initObservers()
 
-    //abstract fun showLoading(isShown: Boolean)
-
     abstract fun showFailure(failure: DataResource.Failure)
 
     override fun onDestroyView() {
@@ -49,19 +48,16 @@ abstract class BaseFragment<viewBinding : ViewBinding>(
     }
 
     protected fun showLoading(isShown: Boolean) {
-        if (isShown) {
-            showProgressDialog()
-        } else {
-            hideProgressDialog()
-        }
+        if (isShown) showProgressDialog()
+        else hideProgressDialog()
     }
 
     private fun showProgressDialog() {
         hideProgressDialog()
-        progressDialog = UtilDialog.showLoadingDialog(requireContext())
+        progressDialog.show()
     }
 
     private fun hideProgressDialog() {
-        if (progressDialog != null && progressDialog?.isShowing ?: return) progressDialog?.cancel() ?: return
+        if (progressDialog.isShowing) progressDialog.cancel()
     }
 }

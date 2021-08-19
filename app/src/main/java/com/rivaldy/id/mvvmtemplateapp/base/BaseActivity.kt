@@ -1,10 +1,11 @@
 package com.rivaldy.id.mvvmtemplateapp.base
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
+import com.rivaldy.id.mvvmtemplateapp.utils.UtilDialog
 
 /**
  * Created by rivaldy on 01/07/21
@@ -13,6 +14,7 @@ import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     lateinit var binding: VB
+    private val progressDialog: Dialog by lazy { UtilDialog.setProgressDialog(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,13 +24,30 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         initObservers()
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
     abstract fun getViewBinding(): VB
 
     abstract fun initView()
 
     abstract fun initObservers()
 
-    abstract fun showLoading(isShown : Boolean)
-
     abstract fun showFailure(failure: DataResource.Failure)
+
+    protected fun showLoading(isShown: Boolean) {
+        if (isShown) showProgressDialog()
+        else hideProgressDialog()
+    }
+
+    private fun showProgressDialog() {
+        hideProgressDialog()
+        progressDialog.show()
+    }
+
+    private fun hideProgressDialog() {
+        if (progressDialog.isShowing) progressDialog.cancel()
+    }
 }
