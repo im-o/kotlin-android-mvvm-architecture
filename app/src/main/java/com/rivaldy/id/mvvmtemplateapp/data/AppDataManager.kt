@@ -58,18 +58,18 @@ class AppDataManager @Inject constructor(
 
     /** Local Data - SharedPreference Storage **/
     override fun setAccessToken(token: String) {
-        TODO("Not yet implemented")
+        pref.setAccessToken(token)
     }
 
     override fun getAccessToken(): String {
-        TODO("Not yet implemented")
+        return pref.getAccessToken()
     }
 
     override fun setCurrentUserId(id: String) {
-        TODO("Not yet implemented")
+        return pref.setCurrentUserId(id)
     }
 
     override fun getCurrentUserId(): String {
-        TODO("Not yet implemented")
+        return pref.getCurrentUserId()
     }
 }

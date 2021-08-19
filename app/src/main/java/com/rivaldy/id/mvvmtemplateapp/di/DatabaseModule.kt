@@ -3,8 +3,6 @@ package com.rivaldy.id.mvvmtemplateapp.di
 import android.content.Context
 import androidx.room.Room
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.AppDatabase
-import com.rivaldy.id.mvvmtemplateapp.data.local.db.AppDbHelper
-import com.rivaldy.id.mvvmtemplateapp.data.local.db.dao.MovieDao
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.DB_THE_MOVIE_DB
 import dagger.Module
 import dagger.Provides

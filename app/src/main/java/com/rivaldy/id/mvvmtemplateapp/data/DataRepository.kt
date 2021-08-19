@@ -1,7 +1,6 @@
 package com.rivaldy.id.mvvmtemplateapp.data
 
 import com.rivaldy.id.mvvmtemplateapp.base.BaseRepository
-import com.rivaldy.id.mvvmtemplateapp.data.AppDataManager
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import javax.inject.Inject
 
@@ -14,13 +13,20 @@ class DataRepository @Inject constructor(
     private val appDataManager: AppDataManager
 ) : BaseRepository() {
 
+    /** Remote Data - Fetch API **/
     suspend fun getMoviesApiCall() = safeApiCall {
         appDataManager.getMoviesApiCall()
     }
 
+    /** Local Data - Room Local Storage **/
     fun getMoviesLocal() = appDataManager.getAllMovie()
 
     suspend fun insertMoviesLocal(movies: MutableList<MovieEntity>) = appDataManager.insertAllMovie(movies)
 
     suspend fun clearMovies() = appDataManager.clearMovies()
+
+    /** Local Data - SharedPreference Storage **/
+    fun getAccessToken() = appDataManager.getAccessToken()
+
+    fun getCurrentUserId() = appDataManager.getCurrentUserId()
 }

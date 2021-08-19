@@ -30,11 +30,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 is DataResource.Failure -> showFailure(it)
             }
         })
-        viewModel.getMoviesLocal().observe(this, {
+        viewModel.getMoviesLocal().observe(this) {
             var text: String? = ""
             for (data in it) text += getString(R.string.movie_desc, data.id, data.title)
             if (it.size > 0) binding.localDataTV.text = text else binding.localDataTV.text = getString(R.string.empty_data)
-        })
+        }
     }
 
     override fun showLoading(isShown: Boolean) {

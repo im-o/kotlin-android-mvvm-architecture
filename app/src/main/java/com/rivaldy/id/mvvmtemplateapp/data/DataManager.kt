@@ -9,6 +9,4 @@ import com.rivaldy.id.mvvmtemplateapp.data.remote.ApiHelper
  * Find me on my Github -> https://github.com/im-o
  **/
 
-interface DataManager : DbHelper, PreferencesHelper, ApiHelper{
-
-}
+interface DataManager : DbHelper, PreferencesHelper, ApiHelper
