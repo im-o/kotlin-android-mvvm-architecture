@@ -7,4 +7,26 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Text Colors-->
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorTextHint">#828282</color>
+    <color name="colorTextGrey">#6A6A6A</color>
+    <color name="colorBlackGreyLow">#AFADAD</color>
+    <color name="colorBlackGrey">#6A6A6A</color>
+    <color name="colorTextNormal">#2D2A32</color>
+    <color name="colorTextGreyLow">#737578</color>
+    <color name="colorTextGreyVeryLow">#A3A6AA</color>
+    <color name="colorBackground">#0DBDBDBD</color>
+    <color name="colorBackgroundBlackHigh">#A1393838</color>
+    <color name="colorBackgroundTransparentHigh">#45393838</color>
+    <color name="colorDivider">#F5F2F2</color>
+    <color name="colorDividerHigh">#ECECEC</color>
+    <color name="colorTextWhitePrimary">#F9DCDC</color>
+    <color name="colorDisable">#dddddd</color>
+    <color name="colorBlackIcon">#2d2a32</color>
+
+    <!--Background-->
+    <color name="colorBackgroundPrimary">#F9F9F9</color>
 </resources>

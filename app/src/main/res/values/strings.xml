@@ -4,9 +4,12 @@
     <string name="no_internet">No internet connection</string>
     <string name="fetch_failed">Failed Fetching API</string>
     <string name="some_error">Some Error</string>
-    <string name="remote_data">Remote Data :</string>
-    <string name="local_data">Local Data :</string>
+    <string name="remote_data">Remote Data</string>
+    <string name="shared_preference_data">SharedPreference Data</string>
+    <string name="local_data">Locale Data</string>
     <string name="empty_data">No data available!</string>
     <string name="show_data">Success show result data -> %1$s</string>
     <string name="movie_desc">%1$d - %2$s\n</string>
+    <string name="todo">TODO</string>
+    <string name="no_data_showing">No data showing…</string>
 </resources>

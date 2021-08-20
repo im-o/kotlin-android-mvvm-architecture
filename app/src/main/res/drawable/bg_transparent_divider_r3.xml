@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- View background color -->
+    <solid android:color="@color/colorDivider" />
+
+    <!-- View border color and width -->
+    <stroke
+        android:width="@dimen/space_0"
+        android:color="@color/colorDivider" />
+
+    <!-- The radius makes the corners rounded -->
+    <corners android:radius="@dimen/space_3" />
+
+</shape>

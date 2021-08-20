@@ -34,7 +34,7 @@ class MovieViewModel @ViewModelInject constructor(
     fun insertMoviesLocal(movieResponse: MovieResponse) {
         val moviesData = mutableListOf<MovieEntity>()
         for (data in movieResponse.movieResults ?: return) {
-            val movieEntity = MovieEntity(data.id ?: 0, data.title ?: "", data.releaseDate, data.voteAverage, data.backdropPath, data.overview, data.originalLanguage)
+            val movieEntity = MovieEntity(data.id ?: 0, data.title ?: "", data.releaseDate, data.voteAverage, data.posterPath, data.overview, data.originalLanguage)
             moviesData.add(movieEntity)
         }
         io { dataRepository.insertMoviesLocal(moviesData) }

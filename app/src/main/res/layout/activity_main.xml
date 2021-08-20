@@ -11,42 +11,172 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="@dimen/space_16">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/hintRemoteDataTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/purple_500"
+                android:gravity="center"
+                android:paddingStart="@dimen/space_16"
+                android:paddingTop="@dimen/size_12"
+                android:paddingEnd="@dimen/space_16"
+                android:paddingBottom="@dimen/space_16"
                 android:text="@string/remote_data"
+                android:textColor="@color/white"
                 android:textSize="@dimen/size_18"
                 android:textStyle="bold"
-                app:drawableEndCompat="@drawable/ic_baseline_refresh_24" />
+                app:drawableEndCompat="@drawable/ic_baseline_refresh_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/remoteDataTV"
-                android:layout_width="match_parent"
+                android:id="@+id/noDataRemoteTV"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/empty_data" />
+                android:layout_marginTop="16dp"
+                android:drawablePadding="@dimen/space_6"
+                android:gravity="center|center_vertical"
+                android:text="@string/no_data_showing"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/size_18"
+                app:drawableStartCompat="@drawable/ic_baseline_info_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hintRemoteDataTV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listDataRemoteRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/space_12"
+                android:paddingTop="@dimen/space_6"
+                android:paddingEnd="@dimen/space_12"
+                android:paddingBottom="@dimen/space_0"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noDataRemoteTV"
+                tools:itemCount="1"
+                tools:listitem="@layout/row_item_movie" />
 
             <TextView
-                android:id="@+id/hintLocalDataTV"
-                android:layout_width="match_parent"
+                android:id="@+id/hintLocaleDataTV"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_16"
+                android:layout_marginTop="16dp"
+                android:background="@color/purple_500"
+                android:gravity="center"
+                android:paddingStart="@dimen/space_16"
+                android:paddingTop="@dimen/size_12"
+                android:paddingEnd="@dimen/space_16"
+                android:paddingBottom="@dimen/space_16"
                 android:text="@string/local_data"
+                android:textColor="@color/white"
                 android:textSize="@dimen/size_18"
                 android:textStyle="bold"
-                app:drawableEndCompat="@drawable/ic_baseline_clear_24" />
+                app:drawableEndCompat="@drawable/ic_baseline_clear_24"
+                app:layout_constraintEnd_toEndOf="@+id/hintRemoteDataTV"
+                app:layout_constraintStart_toStartOf="@+id/hintRemoteDataTV"
+                app:layout_constraintTop_toBottomOf="@+id/listDataRemoteRV" />
 
             <TextView
-                android:id="@+id/localDataTV"
-                android:layout_width="match_parent"
+                android:id="@+id/noDataLocaleTV"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/empty_data" />
-        </LinearLayout>
+                android:layout_marginTop="16dp"
+                android:drawablePadding="@dimen/space_6"
+                android:gravity="center|center_vertical"
+                android:text="@string/no_data_showing"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/size_18"
+                app:drawableStartCompat="@drawable/ic_baseline_info_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hintLocaleDataTV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listDataLocaleRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/space_12"
+                android:paddingTop="@dimen/space_6"
+                android:paddingEnd="@dimen/space_12"
+                android:paddingBottom="@dimen/space_0"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noDataLocaleTV"
+                tools:itemCount="1"
+                tools:listitem="@layout/row_item_movie" />
+
+            <TextView
+                android:id="@+id/hintPrefDataTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/purple_500"
+                android:gravity="center"
+                android:paddingStart="@dimen/space_16"
+                android:paddingTop="@dimen/size_12"
+                android:paddingEnd="@dimen/space_16"
+                android:paddingBottom="@dimen/space_16"
+                android:text="@string/shared_preference_data"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_18"
+                android:textStyle="bold"
+                app:drawableEndCompat="@drawable/ic_baseline_clear_24"
+                app:layout_constraintEnd_toEndOf="@+id/hintRemoteDataTV"
+                app:layout_constraintStart_toStartOf="@+id/hintRemoteDataTV"
+                app:layout_constraintTop_toBottomOf="@+id/listDataLocaleRV" />
+
+            <TextView
+                android:id="@+id/noDataPrefTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="@dimen/space_6"
+                android:gravity="center|center_vertical"
+                android:text="@string/no_data_showing"
+                android:textColor="@color/colorTextGrey"
+                android:textSize="@dimen/size_18"
+                app:drawableStartCompat="@drawable/ic_baseline_info_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hintPrefDataTV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listDataPrefRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/space_12"
+                android:paddingTop="@dimen/space_6"
+                android:paddingEnd="@dimen/space_12"
+                android:paddingBottom="@dimen/space_12"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noDataPrefTV"
+                tools:itemCount="1"
+                tools:listitem="@layout/row_item_movie" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

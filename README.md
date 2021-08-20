@@ -1,6 +1,7 @@
-# MVVM TEMPALTE ON PRORESS ...  
+# MVVM TEMPLATE ON PROGRESS ...
+## Template by [rivaldy_o](https://id.linkedin.com/in/rivaldy-o)
 ## Feature
-- Hilt (Depedency Injection)
+- Hilt (Dependency Injection)
 - Repository Pattern
 - Coroutines (asynchronously)
 - Retrofit (Fetching API)
@@ -17,5 +18,5 @@
 6. ui/YOUR_VIEW_MODEL.kt
 7. ui/YOUR_VIEW.kt
 
-## For check API (Depedency Injection)
+## For check API (Dependency Injection)
 1.
