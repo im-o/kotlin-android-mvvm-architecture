@@ -29,4 +29,10 @@
 
     <!--Background-->
     <color name="colorBackgroundPrimary">#F9F9F9</color>
+
+    <!--Rival custom color-->
+    <color name="colorPrimary">#19acef</color>
+    <color name="colorPrimaryDark">#007dbc</color>
+    <color name="colorAccent">#6bdeff</color>
+    <color name="colorAccentLow">#9C6BDEFF</color>
 </resources>
