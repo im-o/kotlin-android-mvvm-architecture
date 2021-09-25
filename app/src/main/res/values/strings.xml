@@ -16,4 +16,6 @@
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="forgot_pass">Lupa Password? Butuh bantuan.</string>
+    <string name="register">Daftar</string>
+    <string name="no_account_register">Belum punya akun ? Daftar sekarang.</string>
 </resources>

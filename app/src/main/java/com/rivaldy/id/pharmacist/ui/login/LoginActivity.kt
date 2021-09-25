@@ -1,6 +1,5 @@
 package com.rivaldy.id.pharmacist.ui.login
 
-import androidx.appcompat.app.AppCompatActivity
 import com.rivaldy.id.pharmacist.base.BaseActivity
 import com.rivaldy.id.pharmacist.data.network.DataResource
 import com.rivaldy.id.pharmacist.databinding.ActivityLoginBinding

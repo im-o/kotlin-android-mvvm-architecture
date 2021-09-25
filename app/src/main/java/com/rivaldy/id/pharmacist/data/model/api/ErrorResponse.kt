@@ -10,9 +10,9 @@ data class ErrorResponse(
      * CHANGE THIS DATA CLASS WITH YOUR ERROR RESPONSE API
      **/
 
-    @SerializedName("status_code")
+    @SerializedName("status")
     var statusCode: Int? = null,
-    @SerializedName("status_message")
+    @SerializedName("message")
     var statusMessage: String? = null,
     @SerializedName("success")
     var success: Boolean? = null

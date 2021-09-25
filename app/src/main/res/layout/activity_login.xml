@@ -91,7 +91,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/singInMB"
+            android:id="@+id/signInMB"
             android:layout_width="0dp"
             android:layout_height="@dimen/space_60"
             android:layout_marginTop="16dp"
@@ -109,13 +109,34 @@
             android:id="@+id/forgotPassTV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="@dimen/space_8"
+            android:paddingStart="@dimen/space_0"
+            android:paddingTop="@dimen/space_8"
+            android:paddingEnd="@dimen/space_0"
+            android:paddingBottom="@dimen/space_8"
             android:text="@string/forgot_pass"
-            android:textAlignment="textStart"
-            app:layout_constraintEnd_toEndOf="@+id/singInMB"
+            android:textAlignment="textEnd"
+            app:layout_constraintEnd_toEndOf="@+id/signInMB"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/singInMB"
-            app:layout_constraintTop_toBottomOf="@+id/singInMB" />
+            app:layout_constraintStart_toStartOf="@+id/signInMB"
+            app:layout_constraintTop_toBottomOf="@+id/signInMB" />
+
+        <TextView
+            android:id="@+id/hintRegisterTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingStart="@dimen/space_0"
+            android:paddingTop="@dimen/space_8"
+            android:paddingEnd="@dimen/space_0"
+            android:paddingBottom="@dimen/space_8"
+            android:text="@string/no_account_register"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/signInMB"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/signInMB"
+            app:layout_constraintTop_toBottomOf="@+id/forgotPassTV" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
