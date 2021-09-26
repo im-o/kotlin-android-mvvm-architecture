@@ -5,15 +5,23 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/bg_transparent_divider_r3.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/drawable/bg_left_radius_grey_outline.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/drawable/bg_right_radius_outline.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/drawable/color_cursor.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/drawable/cursor_with_padding.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.20925925925925926" />
+        <entry key="app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.22777777777777777" />
         <entry key="app/src/main/res/drawable/ic_pharmacist_color.xml" value="0.22777777777777777" />
         <entry key="app/src/main/res/drawable/ic_right_arrow.xml" value="0.20925925925925926" />
+        <entry key="app/src/main/res/drawable/tab_bg.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/font/lato.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.23076923076923078" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.22406924470688608" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.24881629131129565" />
         <entry key="app/src/main/res/layout/row_item_movie.xml" value="0.33" />
       </map>
     </option>

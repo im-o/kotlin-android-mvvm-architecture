@@ -16,12 +16,16 @@
         android:theme="@style/Theme.MyApoteker"
         tools:ignore="AllowBackup,UnusedAttribute">
         <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true" />
-        <activity android:name=".ui.splash.SplashScreenActivity"
+        <activity
+            android:name=".ui.splash.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -16,6 +16,18 @@
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="forgot_pass">Lupa Password? Butuh bantuan.</string>
-    <string name="register">Daftar</string>
+    <string name="register">Register User</string>
     <string name="no_account_register">Belum punya akun ? Daftar sekarang.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="patient">Pasien</string>
+    <string name="pharmacist">Apoteker</string>
+    <string name="pharmacy">Apotek</string>
+    <string name="user_type">Pilih Jenis Pengguna :</string>
+    <string name="full_name">Nama Lengkap</string>
+    <string name="birth_date">Tanggal Lahir</string>
+    <string name="browse_file">Pilih File</string>
+    <string name="no_file">Belum ada file…</string>
+    <string name="stra_upload">STRA (upload dokumen)</string>
+    <string name="sipa_upload">SIPA (upload dokumen)</string>
 </resources>

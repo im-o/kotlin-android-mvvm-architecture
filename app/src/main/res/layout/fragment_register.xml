@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.register.RegisterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fullNameTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/full_name"
+            android:textSize="@dimen/size_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fullNameTIL"
+            style="@style/CustomTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/fullNameTV"
+            app:layout_constraintStart_toStartOf="@+id/fullNameTV"
+            app:layout_constraintTop_toBottomOf="@+id/fullNameTV">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullNameET"
+                style="@style/CustomWhiteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/space_16"
+                android:gravity="center_vertical"
+                android:hint="@string/full_name"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/birthTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/birth_date"
+            android:textSize="@dimen/size_18"
+            app:layout_constraintEnd_toEndOf="@+id/fullNameTV"
+            app:layout_constraintStart_toStartOf="@+id/fullNameTV"
+            app:layout_constraintTop_toBottomOf="@id/fullNameTIL" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/birthTIL"
+            style="@style/CustomTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/birthTV"
+            app:layout_constraintStart_toStartOf="@+id/birthTV"
+            app:layout_constraintTop_toBottomOf="@+id/birthTV">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/birthET"
+                style="@style/CustomWhiteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:drawablePadding="@dimen/space_16"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:hint="@string/birth_date"
+                android:inputType="textEmailAddress"
+                android:longClickable="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/file1TV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/sipa_upload"
+            android:textSize="@dimen/size_16"
+            app:layout_constraintEnd_toEndOf="@+id/fullNameTV"
+            app:layout_constraintStart_toStartOf="@+id/fullNameTV"
+            app:layout_constraintTop_toBottomOf="@+id/birthTIL" />
+
+        <TextView
+            android:id="@+id/openFile1TV"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_50"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_left_radius_grey_outline"
+            android:drawablePadding="@dimen/space_8"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:padding="@dimen/space_16"
+            android:text="@string/browse_file"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_14"
+            app:drawableStartCompat="@drawable/ic_baseline_attach_file_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/file1TV"
+            app:layout_constraintTop_toBottomOf="@+id/file1TV" />
+
+        <TextView
+            android:id="@+id/fileStatus1TV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_right_radius_outline"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/space_16"
+            android:paddingEnd="@dimen/space_16"
+            android:text="@string/no_file"
+            android:textColor="@color/colorTextHint"
+            android:textSize="@dimen/size_14"
+            app:layout_constraintBottom_toBottomOf="@+id/openFile1TV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/openFile1TV"
+            app:layout_constraintTop_toTopOf="@+id/openFile1TV" />
+
+        <TextView
+            android:id="@+id/file2TV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/stra_upload"
+            android:textSize="@dimen/size_16"
+            app:layout_constraintEnd_toEndOf="@+id/fullNameTV"
+            app:layout_constraintStart_toStartOf="@+id/fullNameTV"
+            app:layout_constraintTop_toBottomOf="@+id/openFile1TV" />
+
+        <TextView
+            android:id="@+id/openFile2TV"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_50"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_left_radius_grey_outline"
+            android:drawablePadding="@dimen/space_8"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:padding="@dimen/space_16"
+            android:text="@string/browse_file"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size_14"
+            app:drawableStartCompat="@drawable/ic_baseline_attach_file_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/file2TV"
+            app:layout_constraintTop_toBottomOf="@+id/file2TV" />
+
+        <TextView
+            android:id="@+id/fileStatus2TV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_right_radius_outline"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/space_16"
+            android:paddingEnd="@dimen/space_16"
+            android:text="@string/no_file"
+            android:textColor="@color/colorTextHint"
+            android:textSize="@dimen/size_14"
+            app:layout_constraintBottom_toBottomOf="@+id/openFile2TV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/openFile2TV"
+            app:layout_constraintTop_toTopOf="@+id/openFile2TV" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
