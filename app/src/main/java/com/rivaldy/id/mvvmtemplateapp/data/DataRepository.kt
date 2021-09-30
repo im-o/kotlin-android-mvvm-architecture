@@ -2,6 +2,7 @@ package com.rivaldy.id.mvvmtemplateapp.data
 
 import com.rivaldy.id.mvvmtemplateapp.base.BaseRepository
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
+import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
 import javax.inject.Inject
 
 /**
@@ -19,14 +20,21 @@ class DataRepository @Inject constructor(
     }
 
     /** Local Data - Room Local Storage **/
-    fun getMoviesLocal() = appDataManager.getAllMovie()
+    fun getAllMovieDb() = appDataManager.getAllMovieDb()
 
-    suspend fun insertMoviesLocal(movies: MutableList<MovieEntity>) = appDataManager.insertAllMovie(movies)
+    suspend fun insertMoviesLocal(movies: MutableList<MovieEntity>) = appDataManager.insertAllMovieDb(movies)
 
-    suspend fun clearMovies() = appDataManager.clearMovies()
+    suspend fun clearMovies() = appDataManager.clearMoviesDb()
 
     /** Local Data - SharedPreference Storage **/
-    fun getAccessToken() = appDataManager.getAccessToken()
 
-    fun getCurrentUserId() = appDataManager.getCurrentUserId()
+    fun setFullMoviePref(movie: MovieLocaleData) {
+        appDataManager.setFullMoviePref(movie)
+    }
+
+    fun getAccessTokenPref() = appDataManager.getAccessTokenPref()
+
+    fun getCurrentUserIdPref() = appDataManager.getCurrentUserIdPref()
+
+    fun getDataUserPref() = appDataManager.getDataUserPref()
 }

@@ -9,6 +9,8 @@ import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import com.rivaldy.id.mvvmtemplateapp.data.DataRepository
+import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
+import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilCoroutines.io
 import kotlinx.coroutines.launch
 
@@ -22,14 +24,16 @@ class MovieViewModel @ViewModelInject constructor(
 ) : ViewModel() {
 
     private val _movies: MutableLiveData<DataResource<MovieResponse>> = MutableLiveData()
+    private val _getDataUserPref: MutableLiveData<AppPreferencesHelper> = MutableLiveData()
     val movies: LiveData<DataResource<MovieResponse>> = _movies
+    val getDataUserPref: LiveData<AppPreferencesHelper> = _getDataUserPref
 
     fun getMoviesApiCall() = viewModelScope.launch {
         _movies.value = DataResource.Loading
         _movies.value = dataRepository.getMoviesApiCall()
     }
 
-    fun getMoviesLocal() = dataRepository.getMoviesLocal()
+    fun getMoviesLocal() = dataRepository.getAllMovieDb()
 
     fun insertMoviesLocal(movieResponse: MovieResponse) {
         val moviesData = mutableListOf<MovieEntity>()
@@ -42,5 +46,14 @@ class MovieViewModel @ViewModelInject constructor(
 
     fun clearMovies() {
         io { dataRepository.clearMovies() }
+    }
+
+    fun setFullMoviePref(movie: MovieLocaleData) {
+        dataRepository.setFullMoviePref(movie)
+        getDataUserPref()
+    }
+
+    fun getDataUserPref() {
+        _getDataUserPref.value = dataRepository.getDataUserPref()
     }
 }

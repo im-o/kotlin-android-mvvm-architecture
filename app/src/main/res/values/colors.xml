@@ -27,6 +27,11 @@
     <color name="colorDisable">#dddddd</color>
     <color name="colorBlackIcon">#2d2a32</color>
 
+    <!--Rival custom color-->
+    <color name="colorPrimary">#FF6200EE</color>
+    <color name="colorPrimaryDark">#FF3700B3</color>
+    <color name="colorAccent">#FFBB86FC</color>
+
     <!--Background-->
     <color name="colorBackgroundPrimary">#F9F9F9</color>
 </resources>

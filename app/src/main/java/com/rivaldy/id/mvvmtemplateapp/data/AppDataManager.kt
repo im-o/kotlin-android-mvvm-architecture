@@ -2,12 +2,10 @@ package com.rivaldy.id.mvvmtemplateapp.data
 
 import androidx.lifecycle.LiveData
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.AppDbHelper
-import com.rivaldy.id.mvvmtemplateapp.data.local.db.DbHelper
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
-import com.rivaldy.id.mvvmtemplateapp.data.local.pref.PreferencesHelper
 import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
-import com.rivaldy.id.mvvmtemplateapp.data.remote.ApiHelper
+import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
 import com.rivaldy.id.mvvmtemplateapp.data.remote.AppApiHelper
 import javax.inject.Inject
 
@@ -28,48 +26,58 @@ class AppDataManager @Inject constructor(
     }
 
     /** Local Data - Room Local Storage **/
-    override suspend fun clearMovies() {
-        db.clearMovies()
+    override suspend fun clearMoviesDb() {
+        db.clearMoviesDb()
     }
 
-    override suspend fun insertAllMovie(movies: MutableList<MovieEntity>) {
-        db.insertAllMovie(movies)
+    override suspend fun insertAllMovieDb(movies: MutableList<MovieEntity>) {
+        db.insertAllMovieDb(movies)
     }
 
-    override suspend fun insertMovie(movie: MovieEntity) {
-        db.insertMovie(movie)
+    override suspend fun insertMovieDb(movie: MovieEntity) {
+        db.insertMovieDb(movie)
     }
 
-    override fun getAllMovie(): LiveData<MutableList<MovieEntity>> {
-        return db.getAllMovie()
+    override fun getAllMovieDb(): LiveData<MutableList<MovieEntity>> {
+        return db.getAllMovieDb()
     }
 
-    override fun getMovieById(movieId: Int): LiveData<MovieEntity> {
-        return db.getMovieById(movieId)
+    override fun getMovieByIdDb(movieId: Int): LiveData<MovieEntity> {
+        return db.getMovieByIdDb(movieId)
     }
 
-    override suspend fun deleteMovie(movie: MovieEntity) {
-        db.deleteMovie(movie)
+    override suspend fun deleteMovieDb(movie: MovieEntity) {
+        db.deleteMovieDb(movie)
     }
 
-    override suspend fun deleteMovieById(movieId: Int) {
-        db.deleteMovieById(movieId)
+    override suspend fun deleteMovieByIdDb(movieId: Int) {
+        db.deleteMovieByIdDb(movieId)
     }
 
     /** Local Data - SharedPreference Storage **/
-    override fun setAccessToken(token: String) {
-        pref.setAccessToken(token)
+
+    override fun setAccessTokenPref(token: String) {
+        pref.setAccessTokenPref(token)
     }
 
-    override fun getAccessToken(): String {
-        return pref.getAccessToken()
+    override fun getAccessTokenPref(): String {
+        return pref.getAccessTokenPref()
     }
 
-    override fun setCurrentUserId(id: String) {
-        return pref.setCurrentUserId(id)
+    override fun setCurrentUserIdPref(id: String) {
+        return pref.setCurrentUserIdPref(id)
     }
 
-    override fun getCurrentUserId(): String {
-        return pref.getCurrentUserId()
+    override fun getCurrentUserIdPref(): String {
+        return pref.getCurrentUserIdPref()
+    }
+
+    override fun setFullMoviePref(movie: MovieLocaleData) {
+        setAccessTokenPref(movie.title ?: "")
+        setCurrentUserIdPref(movie.description ?: "")
+    }
+
+    fun getDataUserPref(): AppPreferencesHelper {
+        return pref
     }
 }

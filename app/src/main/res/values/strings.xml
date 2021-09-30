@@ -12,4 +12,6 @@
     <string name="movie_desc">%1$d - %2$s\n</string>
     <string name="todo">TODO</string>
     <string name="no_data_showing">No data showing…</string>
+    <string name="save_pref">Save Preference</string>
+    <string name="do_save_pref">Do you want to save to preference?</string>
 </resources>

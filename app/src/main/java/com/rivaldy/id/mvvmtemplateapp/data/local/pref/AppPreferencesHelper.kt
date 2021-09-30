@@ -1,8 +1,6 @@
 package com.rivaldy.id.mvvmtemplateapp.data.local.pref
 
 import android.content.SharedPreferences
-import com.rivaldy.id.mvvmtemplateapp.data.model.pref.MoviePref
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
@@ -13,19 +11,19 @@ class AppPreferencesHelper @Inject constructor(
     private val sharedPref: SharedPreferences
 ) : PreferencesHelper {
 
-    override fun setAccessToken(token: String) {
+    override fun setAccessTokenPref(token: String) {
         sharedPref.edit().putString(PREF_KEY_ACCESS_TOKEN, token).apply()
     }
 
-    override fun getAccessToken(): String {
+    override fun getAccessTokenPref(): String {
         return sharedPref.getString(PREF_KEY_ACCESS_TOKEN, null) ?: ""
     }
 
-    override fun setCurrentUserId(id: String) {
+    override fun setCurrentUserIdPref(id: String) {
         sharedPref.edit().putString(PREF_KEY_USER_ID, id).apply()
     }
 
-    override fun getCurrentUserId(): String {
+    override fun getCurrentUserIdPref(): String {
         return sharedPref.getString(PREF_KEY_USER_ID, null) ?: ""
     }
 

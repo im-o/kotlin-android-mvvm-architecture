@@ -9,11 +9,11 @@ import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
  **/
 
 interface DbHelper {
-    suspend fun clearMovies()
-    suspend fun insertAllMovie(movies: MutableList<MovieEntity>)
-    suspend fun insertMovie(movie: MovieEntity)
-    fun getAllMovie(): LiveData<MutableList<MovieEntity>>
-    fun getMovieById(movieId: Int): LiveData<MovieEntity>
-    suspend fun deleteMovie(movie: MovieEntity)
-    suspend fun deleteMovieById(movieId: Int)
+    suspend fun clearMoviesDb()
+    suspend fun insertAllMovieDb(movies: MutableList<MovieEntity>)
+    suspend fun insertMovieDb(movie: MovieEntity)
+    fun getAllMovieDb(): LiveData<MutableList<MovieEntity>>
+    fun getMovieByIdDb(movieId: Int): LiveData<MovieEntity>
+    suspend fun deleteMovieDb(movie: MovieEntity)
+    suspend fun deleteMovieByIdDb(movieId: Int)
 }

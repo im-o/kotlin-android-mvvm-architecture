@@ -1,7 +1,6 @@
 package com.rivaldy.id.mvvmtemplateapp.base
 
 import android.app.Dialog
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

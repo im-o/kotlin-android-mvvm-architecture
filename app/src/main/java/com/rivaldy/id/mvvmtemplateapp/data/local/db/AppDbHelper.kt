@@ -13,27 +13,27 @@ class AppDbHelper @Inject constructor(
     private val appDatabase: AppDatabase
 ) : DbHelper {
 
-    override suspend fun clearMovies() {
+    override suspend fun clearMoviesDb() {
         appDatabase.movieDao().clearMovies()
     }
 
-    override suspend fun insertAllMovie(movies: MutableList<MovieEntity>) {
+    override suspend fun insertAllMovieDb(movies: MutableList<MovieEntity>) {
         appDatabase.movieDao().insertAllMovie(movies)
     }
 
-    override suspend fun insertMovie(movie: MovieEntity) {
+    override suspend fun insertMovieDb(movie: MovieEntity) {
         appDatabase.movieDao().insertMovie(movie)
     }
 
-    override fun getAllMovie() = appDatabase.movieDao().getAllMovie()
+    override fun getAllMovieDb() = appDatabase.movieDao().getAllMovie()
 
-    override fun getMovieById(movieId: Int) = appDatabase.movieDao().getMovieById(movieId)
+    override fun getMovieByIdDb(movieId: Int) = appDatabase.movieDao().getMovieById(movieId)
 
-    override suspend fun deleteMovie(movie: MovieEntity) {
+    override suspend fun deleteMovieDb(movie: MovieEntity) {
         appDatabase.movieDao().deleteMovie(movie)
     }
 
-    override suspend fun deleteMovieById(movieId: Int) {
+    override suspend fun deleteMovieByIdDb(movieId: Int) {
         appDatabase.movieDao().deleteMovieById(movieId)
     }
 

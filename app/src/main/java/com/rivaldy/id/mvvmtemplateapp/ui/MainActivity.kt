@@ -1,7 +1,12 @@
 package com.rivaldy.id.mvvmtemplateapp.ui
 
+import android.annotation.SuppressLint
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.viewModels
+import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.base.BaseActivity
+import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
 import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
@@ -10,7 +15,8 @@ import com.rivaldy.id.mvvmtemplateapp.databinding.ActivityMainBinding
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.ZERO_DATA
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExceptions.handleApiError
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.isVisible
-import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.myToast
+import com.rivaldy.id.mvvmtemplateapp.utils.UtilFunctions.openAlertDialog
+import com.rivaldy.id.mvvmtemplateapp.utils.UtilListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,6 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun initObservers() {
+        viewModel.getDataUserPref()
         viewModel.getMoviesApiCall()
         viewModel.movies.observe(this, {
             when (it) {
@@ -39,6 +46,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         viewModel.getMoviesLocal().observe(this) {
             showViewLocale(it)
         }
+        viewModel.getDataUserPref.observe(this, {
+            loadPref(it)
+        })
     }
 
     override fun showFailure(failure: DataResource.Failure) {
@@ -71,9 +81,31 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun initClick() {
         binding.hintRemoteDataTV.setOnClickListener { viewModel.getMoviesApiCall() }
         binding.hintLocaleDataTV.setOnClickListener { viewModel.clearMovies() }
+        binding.hintPrefDataTV.setOnClickListener { viewModel.setFullMoviePref(MovieLocaleData()) }
     }
 
     private fun movieClick(item: MovieLocaleData) {
-        myToast(item.toString())
+        val title = getString(R.string.save_pref)
+        val message = getString(R.string.do_save_pref)
+        openAlertDialog(this, title, message, object : UtilListener.IDialogButtonClickListener {
+            override fun onPositiveButtonClick() {
+                showLoading(true)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    showLoading(false)
+                    viewModel.setFullMoviePref(item)
+                }, 1000)
+            }
+
+            override fun onNegativeButtonClick() {
+            }
+        })
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun loadPref(userPref: AppPreferencesHelper) {
+        binding.noDataPrefTV.isVisible(userPref.getAccessTokenPref().isEmpty())
+        binding.cardPrefCV.isVisible(userPref.getAccessTokenPref().isNotEmpty())
+        binding.movieNameTV.text = "Movie sample : ${userPref.getAccessTokenPref()}"
+        binding.movieDescTV.text = "Description sample : ${userPref.getCurrentUserIdPref()}"
     }
 }
