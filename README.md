@@ -1,22 +1,28 @@
-# MVVM TEMPLATE ON PROGRESS ...
-## Template by [rivaldy_o](https://id.linkedin.com/in/rivaldy-o)
-## Feature
+# Android Pattern MVVM Architecture - Kotlin
+Hello everyone, I invite you to join [Hacktober Fest 2021](https://hacktoberfest.digitalocean.com), template by [rivaldy_o](https://id.linkedin.com/in/rivaldy-o)
+
+## About Project :
+- This Project is a template to help Android Developer making Android App fast and clean
+- Using Pattern MVVM
+- Using Kotlin Language
+
+## Feature :
 - Hilt (Dependency Injection)
 - Repository Pattern
+- Live Data
 - Coroutines (asynchronously)
 - Retrofit (Fetching API)
 - Room (Local Storage)
-- Data Store (Local Storage key-value, like SharedPreferences)
+- SharedPreferences
 
-# How To Use ?
-## For check API (General)
-1. data/remote/ApiService.kt
-2. data/remote/ApiHelper.kt
-3. data/remote/AppApiHelper.kt
-4. data/source/repository/YOUR_REPOSITORY.kt
-5. data/source/RemoteDataSource
-6. ui/YOUR_VIEW_MODEL.kt
-7. ui/YOUR_VIEW.kt
+## How I can contribute ? You can contribute with :
+- Add kotlin extensions or function useful function
+- Fixed Deprecated library
+- Fixed code
+- Etc (as long as it's useful)
 
-## For check API (Dependency Injection)
-1.
+## Rule :
+- I think no rule, as long as it's useful i'll be review it, if you Android Developer you can easy to make pull request about this project
+- When you see this project is spam, you can report [here](https://hacktoberfest.digitalocean.com/report)
+
+Happy Hacking - Open source is changing the world – one contribution at a time.
