@@ -1,10 +1,12 @@
 package com.rivaldy.id.mvvmtemplateapp.utils
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.util.Log
+import android.widget.DatePicker
 import androidx.appcompat.app.AlertDialog
 import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.LOG_MESSAGE
@@ -76,5 +78,35 @@ object UtilFunctions {
     fun decodeImageBase64(base64: String): Bitmap {
         val decodedString = Base64.decode(base64, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+    }
+
+    fun showDatePickerDisable(context: Context?, resultDatePicker: UtilListener.IResultDatePicker): DatePickerDialog {
+        val calendar = Calendar.getInstance()
+        val day = calendar[Calendar.DAY_OF_MONTH]
+        val month = calendar[Calendar.MONTH]
+        val year = calendar[Calendar.YEAR]
+        val datePicker = DatePickerDialog(
+            context!!,
+            { _: DatePicker?, year1: Int, monthOfYear: Int, dayOfMonth: Int ->
+                calendar[year1, monthOfYear] = dayOfMonth
+                resultDatePicker.onDatePicker(calendar)
+            }, year, month, day
+        )
+        datePicker.datePicker.minDate = System.currentTimeMillis() - 1000
+        return datePicker
+    }
+
+    fun showDatePickerEnable(context: Context?, resultDatePicker: UtilListener.IResultDatePicker): DatePickerDialog {
+        val calendar = Calendar.getInstance()
+        val day = calendar[Calendar.DAY_OF_MONTH]
+        val month = calendar[Calendar.MONTH]
+        val year = calendar[Calendar.YEAR]
+        return DatePickerDialog(
+            context!!,
+            { _: DatePicker?, year1: Int, monthOfYear: Int, dayOfMonth: Int ->
+                calendar[year1, monthOfYear] = dayOfMonth
+                resultDatePicker.onDatePicker(calendar)
+            }, year, month, day
+        )
     }
 }
