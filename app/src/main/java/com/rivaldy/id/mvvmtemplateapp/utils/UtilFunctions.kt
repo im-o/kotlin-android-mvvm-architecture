@@ -1,10 +1,14 @@
 package com.rivaldy.id.mvvmtemplateapp.utils
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.LOG_MESSAGE
+import java.io.ByteArrayOutputStream
 import java.text.NumberFormat
 import java.util.*
 
@@ -60,5 +64,17 @@ object UtilFunctions {
         val myBalance = originalReplace?.toLong() ?: 0F
         strValue = NumberFormat.getNumberInstance(localeID).format(myBalance).replace(",", ".")
         return strValue
+    }
+
+    fun encodeImageBase64(bitmap: Bitmap): String {
+        val byteArr = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArr)
+        val byte = byteArr.toByteArray()
+        return Base64.encodeToString(byte, Base64.DEFAULT)
+    }
+
+    fun decodeImageBase64(base64: String): Bitmap {
+        val decodedString = Base64.decode(base64, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
 }
