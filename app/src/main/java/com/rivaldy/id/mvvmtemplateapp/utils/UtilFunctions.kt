@@ -1,6 +1,8 @@
 package com.rivaldy.id.mvvmtemplateapp.utils
 
 import android.app.DatePickerDialog
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -8,6 +10,7 @@ import android.util.Base64
 import android.util.Log
 import android.widget.DatePicker
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.textfield.TextInputEditText
 import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.LOG_MESSAGE
 import java.io.ByteArrayOutputStream
@@ -21,6 +24,10 @@ import java.util.*
 
 object UtilFunctions {
     val localeID = Locale("in", "ID")
+
+    fun getTimestamp(): Long {
+        return Calendar.getInstance().time.time
+    }
 
     fun loge(message: String) {
         Log.e(LOG_MESSAGE, message)
@@ -109,4 +116,20 @@ object UtilFunctions {
             }, year, month, day
         )
     }
+
+    fun editTextNumberReplace(editText: TextInputEditText): String {
+        var text = editText.text.toString().replace(",", "").replace(".", "")
+        if (text.isEmpty()) text = "0"
+        return text
+    }
+
+    fun setToClipBoard(context: Context, strText: String?): String {
+        val myClipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipData = ClipData.newPlainText(context.resources.getString(R.string.copy_clip), strText)
+        myClipboard.setPrimaryClip(clipData)
+        var msg = context.resources.getString(R.string.copy_clip_success)
+        if (strText?.length ?: 0 <= 20) msg = context.resources.getString(R.string.copy_clip, strText)
+        return msg
+    }
+
 }
