@@ -9,8 +9,11 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.coroutineScope
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.google.android.material.snackbar.Snackbar
 import com.rivaldy.id.mvvmtemplateapp.R
+import kotlinx.coroutines.*
 
 /**
  * Created by rivaldy on 01/07/21
@@ -52,5 +55,16 @@ object UtilExtensions {
 
     fun TextView.setPaintFlag() {
         this.paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+    }
+
+    fun View.delayOnLifecycle(
+        durationInMillis: Long,
+        dispatcher: CoroutineDispatcher = Dispatchers.Main,
+        block: () -> Unit
+    ): Job? = findViewTreeLifecycleOwner()?.let { lifecycleOwner ->
+        lifecycleOwner.lifecycle.coroutineScope.launch(dispatcher) {
+            delay(durationInMillis)
+            block()
+        }
     }
 }
