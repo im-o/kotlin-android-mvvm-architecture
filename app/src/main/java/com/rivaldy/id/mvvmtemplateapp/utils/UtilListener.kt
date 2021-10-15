@@ -16,4 +16,8 @@ interface UtilListener {
     interface IResultDatePicker {
         fun onDatePicker(calendar: Calendar?)
     }
+
+    interface IResultTimePicker {
+        fun onTimePicker(time: String?)
+    }
 }

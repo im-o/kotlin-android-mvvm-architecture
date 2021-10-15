@@ -1,6 +1,8 @@
 package com.rivaldy.id.mvvmtemplateapp.utils
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -9,8 +11,7 @@ import android.graphics.BitmapFactory
 import android.util.Base64
 import android.util.Log
 import android.widget.DatePicker
-import androidx.appcompat.app.AlertDialog
-import com.google.android.material.textfield.TextInputEditText
+import android.widget.EditText
 import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.LOG_MESSAGE
 import java.io.ByteArrayOutputStream
@@ -89,6 +90,18 @@ object UtilFunctions {
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
 
+    fun showTimePickerEnable(context: Context, resultTimePicker: UtilListener.IResultTimePicker) {
+        val calendar = Calendar.getInstance(localeID)
+        val listener = TimePickerDialog.OnTimeSetListener { _, hour, minute ->
+            calendar.set(Calendar.HOUR_OF_DAY, hour)
+            calendar.set(Calendar.MINUTE, minute)
+            val sdf: DateFormat = SimpleDateFormat("HH:mm", localeID)
+            val strHour = sdf.format(calendar.time)
+            resultTimePicker.onTimePicker(strHour)
+        }
+        TimePickerDialog(context, listener, calendar[Calendar.HOUR_OF_DAY], calendar[Calendar.MINUTE], false).show()
+    }
+
     fun showDatePickerDisable(context: Context?, resultDatePicker: UtilListener.IResultDatePicker): DatePickerDialog {
         val calendar = Calendar.getInstance()
         val day = calendar[Calendar.DAY_OF_MONTH]
@@ -119,7 +132,7 @@ object UtilFunctions {
         )
     }
 
-    fun editTextNumberReplace(editText: TextInputEditText): String {
+    fun editTextNumberReplace(editText: EditText): String {
         var text = editText.text.toString().replace(",", "").replace(".", "")
         if (text.isEmpty()) text = "0"
         return text
