@@ -14,7 +14,9 @@ import com.google.android.material.textfield.TextInputEditText
 import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.LOG_MESSAGE
 import java.io.ByteArrayOutputStream
+import java.text.DateFormat
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -23,7 +25,7 @@ import java.util.*
  **/
 
 object UtilFunctions {
-    val localeID = Locale("in", "ID")
+    private val localeID = Locale("in", "ID")
 
     fun getTimestamp(): Long {
         return Calendar.getInstance().time.time
@@ -132,4 +134,34 @@ object UtilFunctions {
         return msg
     }
 
+    fun dateFormatterNormal(calendar: Calendar): String {
+        val sdf: DateFormat = SimpleDateFormat("EEEE, d MMMM yyy", localeID) // Sunday, 01 January 2021
+        return sdf.format(calendar.time)
+    }
+
+    fun getCurrentTime(): String {
+        val strFormat = "EEEE, d MMMM yyy HH:mm:ss"
+        val dateFormat = SimpleDateFormat(strFormat, localeID)
+        return dateFormat.format(Calendar.getInstance().time)
+    }
+
+    fun isStringNull(text: String?): String {
+        return if (text != null) {
+            if (text.isEmpty()) ""
+            else text
+        } else ""
+    }
+
+    fun isStringNullZero(text: String?): String {
+        return if (text != null) {
+            if (text.isEmpty()) "0"
+            else text
+        } else "0"
+    }
+
+    fun getDateTimeStamp(): Long {
+        val strFormat = "ddMMyyyyhhmmSSS" // from this date -> 17/08/2020/02:15:474 to -> 170820200215474
+        val dateFormat = SimpleDateFormat(strFormat, localeID)
+        return dateFormat.format(Calendar.getInstance().time).toLong()
+    }
 }
