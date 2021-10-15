@@ -10,7 +10,7 @@ import com.rivaldy.id.mvvmtemplateapp.data.remote.AppApiHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 
 /**
  * Created by rivaldy on 10/07/21
@@ -18,7 +18,7 @@ import dagger.hilt.android.components.ApplicationComponent
  **/
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object AppHelperModule {
 
     @Provides

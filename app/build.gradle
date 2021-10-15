@@ -30,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildFeatures {
         viewBinding true
@@ -42,8 +42,6 @@ android {
 }
 
 dependencies {
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.appcompat:appcompat:$app_compat_version"
     implementation "com.google.android.material:material:$material_version"
@@ -69,31 +67,11 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version" // optional - Kotlin Extensions and Coroutines support for Room
 
-    // DI - Hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-
-    // ViewModel with Hilt
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodels"
-    kapt "androidx.hilt:hilt-compiler:$hilt_viewmodels"
-
-    // For Use Dependency on Activity and Fragment
-    implementation "androidx.activity:activity-ktx:$activity_version"
-    implementation "androidx.fragment:fragment-ktx:$fragment_version"
-
     // Coroutines
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutines_version"
 
     // Loading Progress - SpinKit
     implementation "com.github.ybq:Android-SpinKit:$spin_kit_version"
-
-    //Lifecycle Extensions
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-
-    //ViewModel & LiveData
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
@@ -101,4 +79,18 @@ dependencies {
     //DataStore
     //implementation "androidx.datastore:datastore-preferences:$data_store_version"
 
+    // Core KTX
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    // Lifecycle KTX
+    implementation "android.arch.lifecycle:extensions:$lifecycle_extensions_version"
+    // Activity & Fragment KTX
+    implementation "androidx.activity:activity-ktx:$activity_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
+    // DI - Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    // ViewModel with Hilt
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodels"
 }

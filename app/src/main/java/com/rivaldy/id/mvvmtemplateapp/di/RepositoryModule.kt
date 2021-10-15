@@ -5,14 +5,14 @@ import com.rivaldy.id.mvvmtemplateapp.data.DataRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 
 /**
  * Created by rivaldy on 01/07/21
  * Find me on my Github -> https://github.com/im-o
  **/
 
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 @Module
 object RepositoryModule {
 

@@ -1,25 +1,27 @@
 package com.rivaldy.id.mvvmtemplateapp.ui
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
-import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
-import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import com.rivaldy.id.mvvmtemplateapp.data.DataRepository
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
+import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
+import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
+import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilCoroutines.io
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Created by rivaldy on 05/07/21
  * Find me on my Github -> https://github.com/im-o
  **/
 
-class MovieViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MovieViewModel @Inject constructor(
     private val dataRepository: DataRepository
 ) : ViewModel() {
 
