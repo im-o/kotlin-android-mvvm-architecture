@@ -2,6 +2,7 @@ package com.rivaldy.id.mvvmtemplateapp
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
+import com.facebook.drawee.backends.pipeline.Fresco
 import dagger.hilt.android.HiltAndroidApp
 
 /**
@@ -14,5 +15,6 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        Fresco.initialize(this)
     }
 }

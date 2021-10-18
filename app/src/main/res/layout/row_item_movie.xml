@@ -26,13 +26,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/posterIV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@color/colorDividerHigh" />
+                app:placeholderImage="@color/colorDividerHigh" />
         </androidx.cardview.widget.CardView>
 
         <TextView

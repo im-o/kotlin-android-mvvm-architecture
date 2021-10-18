@@ -5,8 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
 import com.rivaldy.id.mvvmtemplateapp.databinding.RowItemMovieBinding
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.BASE_IMAGE_URL
@@ -22,10 +20,7 @@ class MovieAdapter(
 
     inner class ViewHolder(private val binding: RowItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(item: MovieLocaleData) {
-            Glide.with(binding.root.context)
-                .load(BASE_IMAGE_URL + item.posterPath)
-                .placeholder(R.color.colorDividerHigh)
-                .into(binding.posterIV)
+            binding.posterIV.setImageURI(BASE_IMAGE_URL + item.posterPath)
             binding.movieNameTV.text = item.title
             binding.movieDescTV.text = item.description
             binding.root.setOnClickListener { listener(item) }
