@@ -6,7 +6,7 @@ package com.rivaldy.id.mvvmtemplateapp.data.model.pref
  **/
 
 data class MoviePref(
-    val id: Int,
+    val id: Int? = null,
     val title: String? = null,
     val releaseDate: String? = null,
     val voteAverage: Double? = 0.0,

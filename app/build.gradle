@@ -76,8 +76,10 @@ dependencies {
     // Fresco
     implementation "com.facebook.fresco:fresco:$fresco_version"
 
-    //DataStore
-    //implementation "androidx.datastore:datastore-preferences:$data_store_version"
+    // Datastore Typed
+    implementation "androidx.datastore:datastore-preferences:$data_store_version"
+    // Datastore Preferences
+    implementation "androidx.datastore:datastore:1.0.0"
 
     // Core KTX
     implementation "androidx.core:core-ktx:$core_ktx_version"

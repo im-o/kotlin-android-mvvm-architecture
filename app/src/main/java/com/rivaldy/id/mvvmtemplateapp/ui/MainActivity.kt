@@ -6,6 +6,7 @@ import android.os.Looper
 import androidx.activity.viewModels
 import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.base.BaseActivity
+import com.rivaldy.id.mvvmtemplateapp.data.local.data_store.DataStoreManager
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
 import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
@@ -13,6 +14,7 @@ import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
 import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import com.rivaldy.id.mvvmtemplateapp.databinding.ActivityMainBinding
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.ZERO_DATA
+import com.rivaldy.id.mvvmtemplateapp.utils.UtilCoroutines.io
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExceptions.handleApiError
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.isVisible
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilFunctions.openAlertDialog
@@ -24,6 +26,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private val viewModel by viewModels<MovieViewModel>()
     private val movieRemoteAdapter: MovieAdapter by lazy { MovieAdapter { item -> movieClick(item) } }
     private val movieLocaleAdapter: MovieAdapter by lazy { MovieAdapter { item -> movieClick(item) } }
+    private val dataStoreManager: DataStoreManager by lazy { DataStoreManager(this) }
 
     override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
 
@@ -93,6 +96,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     showLoading(false)
                     viewModel.setFullMoviePref(item)
+                    io {
+                        dataStoreManager.saveToDataStore(item)
+                    }
                 }, 1000)
             }
 
