@@ -49,6 +49,24 @@ object UtilFunctions {
         builder.create().show()
     }
 
+    fun openAlertDialogExit(context: Context?, title: String?, msg: String?, listener: UtilListener.IDialogButtonClickListener) {
+        val builder = AlertDialog.Builder(context, R.style.AlertDialogTheme)
+            .setTitle(title)
+            .setMessage(msg)
+            .setCancelable(false)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                listener.onPositiveButtonClick()
+            }.setNegativeButton(R.string.str_exit) { _, _ ->
+                listener.onNegativeButtonClick()
+            }
+        builder.create()
+        if (builder.show().isShowing) {
+            //builder.show().cancel()
+        } else {
+            builder.show()
+        }
+    }
+
     fun formatRupiahFloat(rupiah: Float): String? {
         val formatRupiah: NumberFormat = NumberFormat.getCurrencyInstance(localeID)
         return formatRupiah.format(rupiah)

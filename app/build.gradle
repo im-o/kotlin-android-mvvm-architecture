@@ -46,6 +46,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$app_compat_version"
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$junit_test_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_test_version"
@@ -76,6 +78,9 @@ dependencies {
     // Fresco
     implementation "com.facebook.fresco:fresco:$fresco_version"
 
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+
     // Datastore Typed
     implementation "androidx.datastore:datastore-preferences:$data_store_version"
     // Datastore Preferences
@@ -95,4 +100,7 @@ dependencies {
 
     // ViewModel with Hilt
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodels"
+
+    // Image Picker
+    implementation "com.github.dhaval2404:imagepicker:$image_picker_version"
 }

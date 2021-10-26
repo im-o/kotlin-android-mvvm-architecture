@@ -21,4 +21,8 @@ object UtilConstants {
     const val DEFAULT_LANG = "en-US"
     const val DB_THE_MOVIE_DB = "db_the_movie_db"
     const val BASE_IMAGE_URL = "https://www.themoviedb.org/t/p/w220_and_h330_face"
+
+    //LAT_LONG CONST
+    const val MY_LAT = -5.1368557
+    const val MY_LNG = 119.4376833
 }

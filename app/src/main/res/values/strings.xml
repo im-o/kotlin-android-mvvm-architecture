@@ -16,4 +16,12 @@
     <string name="do_save_pref">Do you want to save to preference?</string>
     <string name="copy_clip">%1$s copied to clipboard</string>
     <string name="copy_clip_success">Copied to clipboard</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="str_exit">Keluar</string>
+    <string name="map_req_title">Akses Lokasi</string>
+    <string name="map_req_desc">Aplikasi tidak dapat mengakses lokasi anda, aktifkan lokasi ?</string>
+    <string name="gps_req_title">Aktifkan GPS</string>
+    <string name="gps_req_desc">Aktifkan GPS agar aplikasi berfungsi dengan baik!</string>
+    <string name="no_address">hmm, sorry! i can\'t find your location name, check your gps!</string>
+    <string name="desc_take_pict">NO PICTURE !\nTake a some picture and let me find your last or current location!</string>
 </resources>

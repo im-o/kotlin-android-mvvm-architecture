@@ -1,5 +1,6 @@
 package com.rivaldy.id.mvvmtemplateapp.utils
 
+import com.google.android.gms.maps.model.LatLng
 import java.util.*
 
 /**
@@ -19,5 +20,15 @@ interface UtilListener {
 
     interface IResultTimePicker {
         fun onTimePicker(time: String?)
+    }
+
+    interface ICheckedPermittedMap {
+        fun onPermittedGranted()
+        fun onPermittedDenied()
+    }
+
+    interface IMyLatLong {
+        fun onLoadLatLong(latLng: LatLng?, isCurrentLocation: Boolean)
+        fun onErrorLatLong()
     }
 }
