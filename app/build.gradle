@@ -39,6 +39,9 @@ android {
     buildFeatures {
         viewBinding true
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -46,9 +49,28 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$app_compat_version"
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+
+    //testing
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test.ext:junit:$junit_test_version"
+    androidTestImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_test_version"
+    androidTestImplementation "androidx.test:runner:$androidX_test_version"
+    androidTestImplementation "androidx.test:rules:$androidX_test_version"
+    androidTestImplementation "androidx.test.ext:junit:$junit_test_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_test_version"
+    // For Robolectric tests.
+    testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    // ...with Kotlin.
+    kaptTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //mockito
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
+    testImplementation "androidx.arch.core:core-testing:$android_core_test_version"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_kotlin_version"
+    implementation "androidx.test.espresso:espresso-idling-resource:$idle_resource_version"
 
     // UI
     implementation "com.google.android.material:material:$material_version"
