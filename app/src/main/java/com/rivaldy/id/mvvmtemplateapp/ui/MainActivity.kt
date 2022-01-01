@@ -14,7 +14,7 @@ import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import com.rivaldy.id.mvvmtemplateapp.databinding.ActivityMainBinding
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.ZERO_DATA
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExceptions.handleApiError
-import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.isVisible
+import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.isAreVisible
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilFunctions.openAlertDialog
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,7 +58,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun showViewRemote(movieResponse: MovieResponse) {
         showLoading(false)
-        binding.noDataRemoteTV.isVisible(movieResponse.movieResults?.size == ZERO_DATA)
+        binding.noDataRemoteTV.isAreVisible(movieResponse.movieResults?.size == ZERO_DATA)
         val listData = mutableListOf<MovieLocaleData>()
         for (data in movieResponse.movieResults ?: return) {
             val movieLocaleData = MovieLocaleData(data.id, data.originalTitle, data.overview, data.posterPath)
@@ -69,7 +69,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun showViewLocale(listMovie: MutableList<MovieEntity>?) {
-        binding.noDataLocaleTV.isVisible(listMovie?.size == ZERO_DATA)
+        binding.noDataLocaleTV.isAreVisible(listMovie?.size == ZERO_DATA)
         val listData = mutableListOf<MovieLocaleData>()
         for (data in listMovie ?: return) {
             val movieLocaleData = MovieLocaleData(data.id, data.title, data.overview, data.backdropPath)
@@ -103,8 +103,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     @SuppressLint("SetTextI18n")
     private fun loadPref(userPref: AppPreferencesHelper) {
-        binding.noDataPrefTV.isVisible(userPref.getAccessTokenPref().isEmpty())
-        binding.cardPrefCV.isVisible(userPref.getAccessTokenPref().isNotEmpty())
+        binding.noDataPrefTV.isAreVisible(userPref.getAccessTokenPref().isEmpty())
+        binding.cardPrefCV.isAreVisible(userPref.getAccessTokenPref().isNotEmpty())
         binding.movieNameTV.text = "Movie sample : ${userPref.getAccessTokenPref()}"
         binding.movieDescTV.text = "Description sample : ${userPref.getCurrentUserIdPref()}"
     }
