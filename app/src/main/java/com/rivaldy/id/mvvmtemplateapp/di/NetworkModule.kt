@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder
 import com.rivaldy.id.mvvmtemplateapp.BuildConfig
 import com.rivaldy.id.mvvmtemplateapp.data.network.NetworkConnectionInterceptor
 import com.rivaldy.id.mvvmtemplateapp.data.remote.ApiService
-import com.rivaldy.id.mvvmtemplateapp.data.remote.AppApiHelper
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.DEFAULT_LANG
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.PATH_API_KEY
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.PATH_DEFAULT_LANG
