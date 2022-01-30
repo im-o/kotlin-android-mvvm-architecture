@@ -1,5 +1,9 @@
 # Android Pattern MVVM Architecture - Kotlin
-<!-- Hello everyone, I invite you to join [Hacktober Fest 2021](https://hacktoberfest.digitalocean.com), template by [rivaldy_o](https://id.linkedin.com/in/rivaldy-o) -->
+Hello everyone, this is a sample base project to easily build an Android App (template by [rivaldy_o](https://github.com/im-o))  
+  
+***Contact me on:***  
+[![](https://img.shields.io/badge/-Telegram-blue?logo=telegram)](http://t.me/rvl_o)
+[![](https://img.shields.io/badge/-Linkedin-blue?logo=linkedin)](https://www.linkedin.com/in/rivaldy-o/)
 
 ## About Project :
 - This Project is a template to help Android Developer making Android App fast and clean
