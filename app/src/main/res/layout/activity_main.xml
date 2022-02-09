@@ -229,6 +229,29 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/hintTestModuleTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@color/purple_500"
+                android:gravity="center"
+                android:paddingStart="@dimen/space_16"
+                android:paddingTop="@dimen/size_12"
+                android:paddingEnd="@dimen/space_16"
+                android:paddingBottom="@dimen/space_16"
+                android:text="Go to module 2 (dynamic)"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_18"
+                android:textStyle="bold"
+                app:drawableEndCompat="@drawable/ic_baseline_clear_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/hintRemoteDataTV"
+                app:layout_constraintStart_toStartOf="@+id/hintRemoteDataTV"
+                app:layout_constraintTop_toBottomOf="@+id/cardPrefCV"
+                app:layout_constraintVertical_bias="0.0" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

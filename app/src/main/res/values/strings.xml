@@ -16,4 +16,6 @@
     <string name="do_save_pref">Do you want to save to preference?</string>
     <string name="copy_clip">%1$s copied to clipboard</string>
     <string name="copy_clip_success">Copied to clipboard</string>
+    <string name="title_test_feature">Module Tester</string>
+    <string name="title_activity_hello">HelloActivity</string>
 </resources>

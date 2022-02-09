@@ -1,6 +1,7 @@
 package com.rivaldy.id.mvvmtemplateapp.ui
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
@@ -82,6 +83,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.hintRemoteDataTV.setOnClickListener { viewModel.getMoviesApiCall() }
         binding.hintLocaleDataTV.setOnClickListener { viewModel.clearMovies() }
         binding.hintPrefDataTV.setOnClickListener { viewModel.setFullMoviePref(MovieLocaleData()) }
+        binding.hintTestModuleTV.setOnClickListener {
+            val packageNameModule = packageName
+            val dynamicModuleClassName = "com.rivaldy.id.test_feature.TestActivity"
+            Intent().setClassName(packageNameModule, dynamicModuleClassName).also { intent ->
+                startActivity(intent)
+            }
+        }
     }
 
     private fun movieClick(item: MovieLocaleData) {

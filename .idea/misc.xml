@@ -8,8 +8,9 @@
         <entry key="app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/drawable/ic_right_arrow.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/font/lato.xml" value="0.20925925925925926" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/row_item_movie.xml" value="0.33" />
+        <entry key="test_feature/src/main/res/layout/activity_test.xml" value="0.19895833333333332" />
       </map>
     </option>
   </component>

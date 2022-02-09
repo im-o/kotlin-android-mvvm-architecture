@@ -46,4 +46,10 @@
         <item name="contentInsetStart">0dp</item>
         <item name="contentInsetStartWithNavigation">0dp</item>
     </style>
+    <style name="Theme.MVVMTemplateApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.MVVMTemplateApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.MVVMTemplateApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
