@@ -37,7 +37,7 @@ object UtilFunctions {
     }
 
     fun openAlertDialog(context: Context, title: String?, msg: String?, listener: UtilListener.IDialogButtonClickListener) {
-        val builder = AlertDialog.Builder(context, R.style.AlertDialogTheme)
+        val builder = AlertDialog.Builder(context, R.style.ThemeOverlay_MaterialComponents_Dialog_Alert)
             .setTitle(title)
             .setMessage(msg)
             //.setIcon(R.drawable.ic_baseline_info_24)

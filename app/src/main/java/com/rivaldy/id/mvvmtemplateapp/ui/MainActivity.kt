@@ -36,19 +36,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun initObservers() {
         viewModel.getDataUserPref()
         viewModel.getMoviesApiCall()
-        viewModel.movies.observe(this, {
+        viewModel.movies.observe(this) {
             when (it) {
                 is DataResource.Loading -> showLoading(true)
                 is DataResource.Success -> showViewRemote(it.value)
                 is DataResource.Failure -> showFailure(it)
             }
-        })
+        }
         viewModel.getMoviesLocal().observe(this) {
             showViewLocale(it)
         }
-        viewModel.getDataUserPref.observe(this, {
+        viewModel.getDataUserPref.observe(this) {
             loadPref(it)
-        })
+        }
     }
 
     override fun showFailure(failure: DataResource.Failure) {
