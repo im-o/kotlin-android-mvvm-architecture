@@ -16,12 +16,27 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/showPagingMovieMB"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_60"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/space_8"
+                android:layout_marginEnd="16dp"
+                android:textStyle="bold"
+                android:textSize="@dimen/size_16"
+                android:text="@string/show_movie_paging"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/hintRemoteDataTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/space_8"
                 android:layout_marginEnd="16dp"
                 android:background="@color/purple_500"
                 android:gravity="center"
@@ -36,7 +51,7 @@
                 app:drawableEndCompat="@drawable/ic_baseline_refresh_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/showPagingMovieMB" />
 
             <TextView
                 android:id="@+id/noDataRemoteTV"

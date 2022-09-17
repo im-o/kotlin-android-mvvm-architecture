@@ -90,6 +90,9 @@ dependencies {
 
     // ViewModel with Hilt
     implementation(MyDependencies.hilt_viewmodel)
+
+    val pagingVersion = "3.1.1"
+    implementation("androidx.paging:paging-runtime:$pagingVersion")
 }
 
 repositories {

@@ -10,7 +10,7 @@ import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import com.rivaldy.id.mvvmtemplateapp.ui.MainActivity
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.OTHER_ERROR
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.showSnackBar
-import com.rivaldy.id.mvvmtemplateapp.utils.UtilFunctions.loge
+import com.rivaldy.id.mvvmtemplateapp.utils.UtilFunctions.logE
 import java.io.IOException
 
 /**
@@ -25,7 +25,7 @@ object UtilExceptions {
         failure: DataResource.Failure,
         retry: (() -> Unit)? = null
     ) {
-        loge("NoInternetException : $failure")
+        logE("NoInternetException : $failure")
         if (failure.isNetworkError) {
             if (failure.errorCode == OTHER_ERROR) window.decorView.rootView.showSnackBar(failure.otherMessage.toString(), retry)
             else window.decorView.rootView.showSnackBar(getString(R.string.no_internet), retry)
@@ -38,7 +38,7 @@ object UtilExceptions {
                     if (this is MainActivity) window.decorView.rootView.showSnackBar(errorResponse?.statusMessage ?: getString(R.string.fetch_failed), retry)
                     else window.decorView.rootView.showSnackBar(errorResponse?.statusMessage ?: getString(R.string.fetch_failed), retry)
                 } else window.decorView.rootView.showSnackBar(errorResponse?.statusMessage ?: getString(R.string.some_error))
-                loge("ErrorResponse NoInternetException: $errorResponse")
+                logE("ErrorResponse NoInternetException: $errorResponse")
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -50,7 +50,7 @@ object UtilExceptions {
         failure: DataResource.Failure,
         retry: (() -> Unit)? = null
     ) {
-        loge("NoInternetException : $failure")
+        logE("NoInternetException : $failure")
         try {
             if (failure.isNetworkError) {
                 if (failure.errorCode == OTHER_ERROR) requireView().showSnackBar(failure.otherMessage.toString(), retry)
@@ -61,7 +61,7 @@ object UtilExceptions {
                 val errorResponse: ErrorResponse? = gson.fromJson(failure.errorBody?.charStream(), type)
                 if (failure.errorCode == 401) requireView().showSnackBar(errorResponse?.statusMessage ?: getString(R.string.fetch_failed), retry)
                 else requireView().showSnackBar(errorResponse?.statusMessage ?: getString(R.string.some_error))
-                loge("ErrorResponse NoInternetException: $errorResponse")
+                logE("ErrorResponse NoInternetException: $errorResponse")
             }
         } catch (e: Exception) {
             e.printStackTrace()

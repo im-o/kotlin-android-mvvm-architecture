@@ -12,9 +12,11 @@ import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
 import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import com.rivaldy.id.mvvmtemplateapp.databinding.ActivityMainBinding
+import com.rivaldy.id.mvvmtemplateapp.ui.movie.MainMovieActivity
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.ZERO_DATA
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExceptions.handleApiError
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.isAreVisible
+import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.openActivity
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilFunctions.openAlertDialog
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -82,6 +84,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.hintRemoteDataTV.setOnClickListener { viewModel.getMoviesApiCall() }
         binding.hintLocaleDataTV.setOnClickListener { viewModel.clearMovies() }
         binding.hintPrefDataTV.setOnClickListener { viewModel.setFullMoviePref(MovieLocaleData()) }
+        binding.showPagingMovieMB.setOnClickListener {
+            openActivity(MainMovieActivity::class.java)
+        }
     }
 
     private fun movieClick(item: MovieLocaleData) {

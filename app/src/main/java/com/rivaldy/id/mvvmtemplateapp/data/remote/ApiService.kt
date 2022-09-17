@@ -4,6 +4,7 @@ import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
 import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * Created by rivaldy on 01/07/21
@@ -13,4 +14,9 @@ import retrofit2.http.GET
 interface ApiService {
     @GET("discover/movie")
     suspend fun getMovies(): MovieResponse
+
+    @GET("discover/movie")
+    suspend fun getMoviesByPage(
+        @Query("page") page: Int
+    ): MovieResponse
 }

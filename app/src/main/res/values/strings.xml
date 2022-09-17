@@ -16,4 +16,5 @@
     <string name="do_save_pref">Do you want to save to preference?</string>
     <string name="copy_clip">%1$s copied to clipboard</string>
     <string name="copy_clip_success">Copied to clipboard</string>
+    <string name="show_movie_paging">Show Movie Paging</string>
 </resources>

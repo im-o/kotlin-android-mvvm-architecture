@@ -2,6 +2,8 @@ package com.rivaldy.id.mvvmtemplateapp.di
 
 import com.rivaldy.id.mvvmtemplateapp.data.AppDataManager
 import com.rivaldy.id.mvvmtemplateapp.data.DataRepository
+import com.rivaldy.id.mvvmtemplateapp.data.remote.ApiService
+import com.rivaldy.id.mvvmtemplateapp.data.repository.MovieRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,5 +21,10 @@ object RepositoryModule {
     @Provides
     fun provideDataRepository(appDataManager: AppDataManager): DataRepository {
         return DataRepository(appDataManager)
+    }
+
+    @Provides
+    fun provideMovieRepositoryImpl(apiService: ApiService): MovieRepositoryImpl {
+        return MovieRepositoryImpl(apiService)
     }
 }

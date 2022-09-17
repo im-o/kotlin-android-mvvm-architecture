@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MVVMTemplateApp"
         tools:ignore="AllowBackup,UnusedAttribute">
         <activity
+            android:name=".ui.movie.MainMovieActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
