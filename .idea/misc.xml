@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ANDROID-DEV/MY-PROJECT/kotlin-android-mvvm-architecture/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/ANDROID-DEV/MY-PROJECT/kotlin-android-mvvm-architecture/app/src/main/res/layout/activity_main_movie.xml" value="0.371875" />
+        <entry key="..\:/ANDROID-DEV/MY-PROJECT/kotlin-android-mvvm-architecture/app/src/main/res/layout/activity_sample_movie.xml" value="0.371875" />
         <entry key="app/src/main/res/drawable-v24/bg_transparent_divider_r3.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.20925925925925926" />
