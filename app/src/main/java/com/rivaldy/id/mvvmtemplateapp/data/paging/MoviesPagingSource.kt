@@ -15,22 +15,15 @@ class MoviesPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieLocaleData> {
         val startPage = params.key ?: TMDB_STARTING_PAGE
-        //val range = startPage.until(startPage + params.loadSize)
         return try {
             val response = apiService.getMoviesByPage(startPage)
             val movies = response.movieResults
-            //val nextKey = if (movies?.isEmpty() == true) null else pageNumber + (params.loadSize / NETWORK_PAGE_SIZE)
             val nextKey = if (movies?.isEmpty() == true) null else startPage + TMDB_STARTING_PAGE
             LoadResult.Page(
                 data = movies?.map {
                     MovieLocaleData(it.id, it.title, it.overview, it.posterPath)
                 }.orEmpty(),
-//                prevKey = when (startPage) {
-//                    TMDB_STARTING_PAGE_NUMBER -> null
-//                    else -> ensureValidKey(key = range.first - params.loadSize)
-//                },
                 prevKey = if (startPage == TMDB_STARTING_PAGE) null else startPage,
-                //nextKey = startPage + 1
                 nextKey = nextKey
             )
         } catch (exception: IOException) {
@@ -45,8 +38,6 @@ class MoviesPagingSource(
             state.closestPageToPosition(it)?.prevKey?.plus(1) ?: state.closestPageToPosition(it)?.nextKey?.minus(1)
         }
     }
-
-    //private fun ensureValidKey(key: Int) = max(TMDB_STARTING_PAGE_NUMBER, key)
 
     companion object {
         const val TMDB_STARTING_PAGE = 1
