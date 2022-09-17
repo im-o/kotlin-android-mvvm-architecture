@@ -1,4 +1,4 @@
-package com.rivaldy.id.mvvmtemplateapp.ui
+package com.rivaldy.id.mvvmtemplateapp.ui.sample_movie
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -21,7 +21,7 @@ import javax.inject.Inject
  **/
 
 @HiltViewModel
-class MovieViewModel @Inject constructor(
+class SampleMovieViewModel @Inject constructor(
     private val dataRepository: DataRepository
 ) : ViewModel() {
 

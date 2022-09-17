@@ -1,9 +1,10 @@
-package com.rivaldy.id.mvvmtemplateapp.ui
+package com.rivaldy.id.mvvmtemplateapp.ui.sample_movie
 
 import android.annotation.SuppressLint
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.base.BaseActivity
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
@@ -11,27 +12,24 @@ import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
 import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
-import com.rivaldy.id.mvvmtemplateapp.databinding.ActivityMainBinding
-import com.rivaldy.id.mvvmtemplateapp.ui.movie.MainMovieActivity
+import com.rivaldy.id.mvvmtemplateapp.databinding.ActivitySampleMovieBinding
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.ZERO_DATA
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExceptions.handleApiError
-import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.isAreVisible
-import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.openActivity
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilFunctions.openAlertDialog
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding>() {
-    private val viewModel by viewModels<MovieViewModel>()
-    private val movieRemoteAdapter: MovieAdapter by lazy { MovieAdapter { item -> movieClick(item) } }
-    private val movieLocaleAdapter: MovieAdapter by lazy { MovieAdapter { item -> movieClick(item) } }
+class SampleMovieActivity : BaseActivity<ActivitySampleMovieBinding>() {
+    private val viewModel by viewModels<SampleMovieViewModel>()
+    private val sampleMovieRemoteAdapter: SampleMovieAdapter by lazy { SampleMovieAdapter { item -> movieClick(item) } }
+    private val sampleMovieLocaleAdapter: SampleMovieAdapter by lazy { SampleMovieAdapter { item -> movieClick(item) } }
 
-    override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
+    override fun getViewBinding() = ActivitySampleMovieBinding.inflate(layoutInflater)
 
     override fun initView() {
-        binding.listDataRemoteRV.adapter = movieRemoteAdapter
-        binding.listDataLocaleRV.adapter = movieLocaleAdapter
+        binding.listDataRemoteRV.adapter = sampleMovieRemoteAdapter
+        binding.listDataLocaleRV.adapter = sampleMovieLocaleAdapter
         initClick()
     }
 
@@ -60,33 +58,30 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun showViewRemote(movieResponse: MovieResponse) {
         showLoading(false)
-        binding.noDataRemoteTV.isAreVisible(movieResponse.movieResults?.size == ZERO_DATA)
+        binding.noDataRemoteTV.isVisible = movieResponse.movieResults?.size == ZERO_DATA
         val listData = mutableListOf<MovieLocaleData>()
         for (data in movieResponse.movieResults ?: return) {
             val movieLocaleData = MovieLocaleData(data.id, data.originalTitle, data.overview, data.posterPath)
             listData.add(movieLocaleData)
         }
-        movieRemoteAdapter.submitList(listData)
+        sampleMovieRemoteAdapter.submitList(listData)
         viewModel.insertMoviesLocal(movieResponse)
     }
 
     private fun showViewLocale(listMovie: MutableList<MovieEntity>?) {
-        binding.noDataLocaleTV.isAreVisible(listMovie?.size == ZERO_DATA)
+        binding.noDataLocaleTV.isVisible = listMovie?.size == ZERO_DATA
         val listData = mutableListOf<MovieLocaleData>()
         for (data in listMovie ?: return) {
             val movieLocaleData = MovieLocaleData(data.id, data.title, data.overview, data.backdropPath)
             listData.add(movieLocaleData)
         }
-        movieLocaleAdapter.submitList(listData)
+        sampleMovieLocaleAdapter.submitList(listData)
     }
 
     private fun initClick() {
         binding.hintRemoteDataTV.setOnClickListener { viewModel.getMoviesApiCall() }
         binding.hintLocaleDataTV.setOnClickListener { viewModel.clearMovies() }
         binding.hintPrefDataTV.setOnClickListener { viewModel.setFullMoviePref(MovieLocaleData()) }
-        binding.showPagingMovieMB.setOnClickListener {
-            openActivity(MainMovieActivity::class.java)
-        }
     }
 
     private fun movieClick(item: MovieLocaleData) {
@@ -108,8 +103,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     @SuppressLint("SetTextI18n")
     private fun loadPref(userPref: AppPreferencesHelper) {
-        binding.noDataPrefTV.isAreVisible(userPref.getAccessTokenPref().isEmpty())
-        binding.cardPrefCV.isAreVisible(userPref.getAccessTokenPref().isNotEmpty())
+        binding.noDataPrefTV.isVisible = userPref.getAccessTokenPref().isEmpty()
+        binding.cardPrefCV.isVisible = userPref.getAccessTokenPref().isNotEmpty()
         binding.movieNameTV.text = "Movie sample : ${userPref.getAccessTokenPref()}"
         binding.movieDescTV.text = "Description sample : ${userPref.getCurrentUserIdPref()}"
     }

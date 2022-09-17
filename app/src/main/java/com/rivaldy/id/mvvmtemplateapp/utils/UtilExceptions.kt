@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken
 import com.rivaldy.id.mvvmtemplateapp.R
 import com.rivaldy.id.mvvmtemplateapp.data.model.api.ErrorResponse
 import com.rivaldy.id.mvvmtemplateapp.data.network.DataResource
-import com.rivaldy.id.mvvmtemplateapp.ui.MainActivity
+import com.rivaldy.id.mvvmtemplateapp.ui.sample_movie.SampleMovieActivity
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.OTHER_ERROR
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilExtensions.showSnackBar
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilFunctions.logE
@@ -35,7 +35,7 @@ object UtilExceptions {
                 val type = object : TypeToken<ErrorResponse>() {}.type
                 val errorResponse: ErrorResponse? = gson.fromJson(failure.errorBody?.charStream(), type)
                 if (failure.errorCode == 401) {
-                    if (this is MainActivity) window.decorView.rootView.showSnackBar(errorResponse?.statusMessage ?: getString(R.string.fetch_failed), retry)
+                    if (this is SampleMovieActivity) window.decorView.rootView.showSnackBar(errorResponse?.statusMessage ?: getString(R.string.fetch_failed), retry)
                     else window.decorView.rootView.showSnackBar(errorResponse?.statusMessage ?: getString(R.string.fetch_failed), retry)
                 } else window.decorView.rootView.showSnackBar(errorResponse?.statusMessage ?: getString(R.string.some_error))
                 logE("ErrorResponse NoInternetException: $errorResponse")

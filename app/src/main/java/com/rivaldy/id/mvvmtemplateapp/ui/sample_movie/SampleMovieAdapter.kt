@@ -1,4 +1,4 @@
-package com.rivaldy.id.mvvmtemplateapp.ui
+package com.rivaldy.id.mvvmtemplateapp.ui.sample_movie
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -16,9 +16,9 @@ import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.BASE_IMAGE_URL
  * Find me on my Github -> https://github.com/im-o
  **/
 
-class MovieAdapter(
+class SampleMovieAdapter(
     private val listener: (MovieLocaleData) -> Unit
-) : ListAdapter<MovieLocaleData, MovieAdapter.ViewHolder>(DIFF_CALLBACK) {
+) : ListAdapter<MovieLocaleData, SampleMovieAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     inner class ViewHolder(private val binding: RowItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(item: MovieLocaleData) {
