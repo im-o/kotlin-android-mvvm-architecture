@@ -91,8 +91,12 @@ dependencies {
     // ViewModel with Hilt
     implementation(MyDependencies.hilt_viewmodel)
 
+    // Paging 3
     val pagingVersion = "3.1.1"
     implementation("androidx.paging:paging-runtime:$pagingVersion")
+
+    // MPAndroidChart
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }
 
 repositories {

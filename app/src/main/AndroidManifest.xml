@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MVVMTemplateApp"
         tools:ignore="AllowBackup,UnusedAttribute">
         <activity
+            android:name=".ui.charts.RadarChartActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.sample_movie.SampleMovieActivity"
             android:exported="false" />
         <activity

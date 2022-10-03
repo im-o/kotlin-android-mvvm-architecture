@@ -18,4 +18,5 @@
     <string name="copy_clip_success">Copied to clipboard</string>
     <string name="show_movie_paging">Show Movie Paging</string>
     <string name="show_sample_movie">Show Movie Remote, Local</string>
+    <string name="show_radar_chart">Show Radar Chart</string>
 </resources>
