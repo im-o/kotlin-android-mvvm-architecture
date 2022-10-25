@@ -1,5 +1,6 @@
 package com.rivaldy.id.mvvmtemplateapp.ui.movie
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -18,14 +19,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainMovieViewModel @Inject constructor(
-    private val repo: MovieRepositoryImpl
+    repo: MovieRepositoryImpl
 ) : ViewModel() {
 
-    private lateinit var _moviesFlow: Flow<PagingData<MovieLocaleData>>
-    val moviesFlow: Flow<PagingData<MovieLocaleData>>
-        get() = _moviesFlow
-
-    fun getMoviesByPageApiCall() = viewModelScope.launch {
-        _moviesFlow = repo.getMoviesByPage().cachedIn(viewModelScope)
-    }
+    val moviesApiCall:  LiveData<PagingData<MovieLocaleData>> = repo.getMoviesByPage().cachedIn(viewModelScope)
 }
