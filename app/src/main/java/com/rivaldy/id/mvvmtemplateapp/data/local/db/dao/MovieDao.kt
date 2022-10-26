@@ -1,6 +1,7 @@
 package com.rivaldy.id.mvvmtemplateapp.data.local.db.dao
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
 import androidx.room.*
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 
@@ -36,7 +37,13 @@ interface MovieDao {
     @Delete
     suspend fun deleteMovie(movie: MovieEntity)
 
+    @Query("DELETE FROM tbl_movie")
+    suspend fun deleteMovies()
+
     /** you can use this too, for delete note by id. **/
     @Query("DELETE FROM tbl_movie WHERE id = :movieId")
     suspend fun deleteMovieById(movieId: Int)
+
+    @Query("SELECT * FROM tbl_movie ORDER BY title ASC")
+    fun getMoviesPaging(): PagingSource<Int, MovieEntity>
 }

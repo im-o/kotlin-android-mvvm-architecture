@@ -9,7 +9,7 @@ import java.io.IOException
 
 /** Created by github.com/im-o on 9/16/2022. */
 
-class MoviesPagingSource(
+class MoviePagingSource(
     private val apiService: ApiService
 ) : PagingSource<Int, MovieLocaleData>() {
 

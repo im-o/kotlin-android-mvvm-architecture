@@ -36,6 +36,8 @@ object Versions {
     const val target_sdk = 31
     const val version_code = 1
     const val version_name = "1.0"
+    const val paging_version = "3.1.1"
+    const val room_paging_version = "2.4.0-rc01"
 }
 
 object MyDependencies {
@@ -88,4 +90,8 @@ object MyDependencies {
 
     // ViewModel with Hilt
     const val hilt_viewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hilt_viewModels}"
+
+    // Paging
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging_version}"
+    const val room_paging = "androidx.room:room-paging:${Versions.room_paging_version}"
 }

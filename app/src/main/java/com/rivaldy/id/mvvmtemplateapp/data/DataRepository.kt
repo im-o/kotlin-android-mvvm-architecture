@@ -22,6 +22,8 @@ class DataRepository @Inject constructor(
     /** Local Data - Room Local Storage **/
     fun getAllMovieDb() = appDataManager.getAllMovieDb()
 
+    fun getMoviesPaging() = appDataManager.getMoviesPaging()
+
     suspend fun insertMoviesLocal(movies: MutableList<MovieEntity>) = appDataManager.insertAllMovieDb(movies)
 
     suspend fun clearMovies() = appDataManager.clearMoviesDb()
