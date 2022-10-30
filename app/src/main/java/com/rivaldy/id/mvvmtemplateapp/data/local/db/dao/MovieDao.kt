@@ -44,6 +44,6 @@ interface MovieDao {
     @Query("DELETE FROM tbl_movie WHERE id = :movieId")
     suspend fun deleteMovieById(movieId: Int)
 
-    @Query("SELECT * FROM tbl_movie ORDER BY title ASC")
+    @Query("SELECT * FROM tbl_movie")
     fun getMoviesPaging(): PagingSource<Int, MovieEntity>
 }
