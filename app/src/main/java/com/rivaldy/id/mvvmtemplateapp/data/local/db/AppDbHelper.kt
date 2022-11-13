@@ -1,5 +1,6 @@
 package com.rivaldy.id.mvvmtemplateapp.data.local.db
 
+import androidx.paging.PagingSource
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import javax.inject.Inject
 
@@ -26,6 +27,8 @@ class AppDbHelper @Inject constructor(
     }
 
     override fun getAllMovieDb() = appDatabase.movieDao().getAllMovie()
+
+    override fun getMoviesPaging(): PagingSource<Int, MovieEntity> = appDatabase.movieDao().getMoviesPaging()
 
     override fun getMovieByIdDb(movieId: Int) = appDatabase.movieDao().getMovieById(movieId)
 

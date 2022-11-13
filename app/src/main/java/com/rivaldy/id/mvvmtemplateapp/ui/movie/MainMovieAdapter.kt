@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rivaldy.id.mvvmtemplateapp.R
-import com.rivaldy.id.mvvmtemplateapp.data.model.offline.MovieLocaleData
+import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 import com.rivaldy.id.mvvmtemplateapp.databinding.RowItemMovieBinding
 import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.BASE_IMAGE_URL
 
@@ -16,16 +16,16 @@ import com.rivaldy.id.mvvmtemplateapp.utils.UtilConstants.BASE_IMAGE_URL
  * Find me on my Github -> https://github.com/im-o
  **/
 
-class MainMovieAdapter() : PagingDataAdapter<MovieLocaleData, MainMovieAdapter.ViewHolder>(DIFF_CALLBACK) {
+class MainMovieAdapter : PagingDataAdapter<MovieEntity, MainMovieAdapter.ViewHolder>(DIFF_CALLBACK) {
     inner class ViewHolder(private val binding: RowItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(item: MovieLocaleData?) {
+        fun bindItem(item: MovieEntity?) {
             binding.apply {
                 Glide.with(root.context)
-                    .load(BASE_IMAGE_URL + item?.posterPath)
+                    .load(BASE_IMAGE_URL + item?.backdropPath)
                     .placeholder(R.color.colorDividerHigh)
                     .into(posterIV)
                 movieNameTV.text = item?.title
-                movieDescTV.text = item?.description
+                movieDescTV.text = item?.overview
             }
         }
     }
@@ -40,12 +40,12 @@ class MainMovieAdapter() : PagingDataAdapter<MovieLocaleData, MainMovieAdapter.V
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieLocaleData>() {
-            override fun areItemsTheSame(oldItem: MovieLocaleData, newItem: MovieLocaleData): Boolean {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>() {
+            override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: MovieLocaleData, newItem: MovieLocaleData): Boolean {
+            override fun areContentsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
                 return oldItem == newItem
             }
         }

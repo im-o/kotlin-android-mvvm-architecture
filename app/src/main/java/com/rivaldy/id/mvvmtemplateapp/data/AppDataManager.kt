@@ -1,6 +1,7 @@
 package com.rivaldy.id.mvvmtemplateapp.data
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.AppDbHelper
 import com.rivaldy.id.mvvmtemplateapp.data.local.pref.AppPreferencesHelper
 import com.rivaldy.id.mvvmtemplateapp.data.model.api.movie.MovieResponse
@@ -41,6 +42,8 @@ class AppDataManager @Inject constructor(
     override fun getAllMovieDb(): LiveData<MutableList<MovieEntity>> {
         return db.getAllMovieDb()
     }
+
+    override fun getMoviesPaging(): PagingSource<Int, MovieEntity> = db.getMoviesPaging()
 
     override fun getMovieByIdDb(movieId: Int): LiveData<MovieEntity> {
         return db.getMovieByIdDb(movieId)

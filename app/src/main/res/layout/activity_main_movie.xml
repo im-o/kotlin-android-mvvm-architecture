@@ -7,7 +7,7 @@
     tools:context=".ui.movie.MainMovieActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listDataRemoteRV"
+        android:id="@+id/listDataRV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
@@ -24,4 +24,21 @@
         app:layout_constraintVertical_bias="0.0"
         tools:itemCount="10"
         tools:listitem="@layout/row_item_movie" />
+
+    <TextView
+        android:id="@+id/noDataTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="@dimen/space_6"
+        android:gravity="center|center_vertical"
+        android:overScrollMode="never"
+        android:text="@string/no_data_showing"
+        android:textColor="@color/colorTextGrey"
+        android:textSize="@dimen/size_18"
+        app:drawableStartCompat="@drawable/ic_baseline_info_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
