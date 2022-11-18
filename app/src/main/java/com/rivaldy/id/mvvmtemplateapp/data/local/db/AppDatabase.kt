@@ -3,6 +3,8 @@ package com.rivaldy.id.mvvmtemplateapp.data.local.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.rivaldy.id.mvvmtemplateapp.data.local.db.dao.MovieDao
+import com.rivaldy.id.mvvmtemplateapp.data.local.db.remotekey.RemoteKeys
+import com.rivaldy.id.mvvmtemplateapp.data.local.db.remotekey.RemoteKeysDao
 import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
 
 /**
@@ -11,11 +13,12 @@ import com.rivaldy.id.mvvmtemplateapp.data.model.db.movie.MovieEntity
  **/
 
 @Database(
-    entities = [MovieEntity::class],
+    entities = [MovieEntity::class, RemoteKeys::class],
     version = 1,
     exportSchema = false
 )
 
 abstract class AppDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
+    abstract fun remoteKeysDao(): RemoteKeysDao
 }

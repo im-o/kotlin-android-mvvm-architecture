@@ -32,8 +32,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    val commonCompilerArgs = listOf<String>()
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
+        freeCompilerArgs = commonCompilerArgs + listOf("-Xopt-in=kotlin.RequiresOptIn")
     }
     buildFeatures {
         viewBinding = true
@@ -90,6 +92,11 @@ dependencies {
 
     // ViewModel with Hilt
     implementation(MyDependencies.hilt_viewmodel)
+
+    // Paging
+    implementation(MyDependencies.paging)
+    implementation(MyDependencies.room_paging)
+
 }
 
 repositories {

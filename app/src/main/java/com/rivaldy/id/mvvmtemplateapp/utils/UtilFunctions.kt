@@ -32,7 +32,7 @@ object UtilFunctions {
         return Calendar.getInstance().time.time
     }
 
-    fun loge(message: String) {
+    fun logE(message: String) {
         Log.e(LOG_MESSAGE, message)
     }
 
