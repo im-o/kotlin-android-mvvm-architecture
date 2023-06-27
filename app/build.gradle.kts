@@ -1,15 +1,15 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
-    id("kotlin-platform-android")
     id("dagger.hilt.android.plugin")
 }
 
+@Suppress("UnstableApiUsage")
 android {
+    namespace = "com.rivaldy.id.mvvmtemplateapp"
     compileSdk = Versions.compile_sdk
-    buildToolsVersion = Versions.build_tools_version
 
     defaultConfig {
         applicationId = "com.rivaldy.id.mvvmtemplateapp"
@@ -23,7 +23,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
@@ -32,13 +32,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    val commonCompilerArgs = listOf<String>()
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
-        freeCompilerArgs = commonCompilerArgs + listOf("-Xopt-in=kotlin.RequiresOptIn")
+        freeCompilerArgs = listOf<String>() + listOf("-Xopt-in=kotlin.RequiresOptIn")
     }
     buildFeatures {
         viewBinding = true
+    }
+    kapt {
+        correctErrorTypes = true
     }
 }
 
@@ -97,8 +99,4 @@ dependencies {
     implementation(MyDependencies.paging)
     implementation(MyDependencies.room_paging)
 
-}
-
-repositories {
-    mavenCentral()
 }

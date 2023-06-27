@@ -37,7 +37,7 @@ object UtilFunctions {
     }
 
     fun openAlertDialog(context: Context, title: String?, msg: String?, listener: UtilListener.IDialogButtonClickListener) {
-        val builder = AlertDialog.Builder(context, R.style.ThemeOverlay_MaterialComponents_Dialog_Alert)
+        val builder = AlertDialog.Builder(context, androidx.navigation.ui.R.style.ThemeOverlay_MaterialComponents_Dialog_Alert)
             .setTitle(title)
             .setMessage(msg)
             //.setIcon(R.drawable.ic_baseline_info_24)
@@ -143,7 +143,7 @@ object UtilFunctions {
         val clipData = ClipData.newPlainText(context.resources.getString(R.string.copy_clip), strText)
         myClipboard.setPrimaryClip(clipData)
         var msg = context.resources.getString(R.string.copy_clip_success)
-        if (strText?.length ?: 0 <= 20) msg = context.resources.getString(R.string.copy_clip, strText)
+        if ((strText?.length ?: 0) <= 20) msg = context.resources.getString(R.string.copy_clip, strText)
         return msg
     }
 

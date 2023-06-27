@@ -30,14 +30,19 @@ object Versions {
     const val data_store_version = "1.0.0-rc01"
     const val glide_version = "4.11.0"
 
-    const val compile_sdk = 31
     const val build_tools_version = "30.0.3"
-    const val min_sdk = 23
-    const val target_sdk = 31
-    const val version_code = 1
-    const val version_name = "1.0"
     const val paging_version = "3.1.1"
     const val room_paging_version = "2.4.0-rc01"
+
+    const val compile_sdk = 32
+    const val min_sdk = 23
+    const val target_sdk = 32
+    const val version_code = 1
+    const val version_name = "1.0"
+
+    const val gradle_plugin = "7.1.1"
+    const val kotlin_gradle_plugin = "1.6.21"
+    const val hilt_gradle_plugin = "2.38.1"
 }
 
 object MyDependencies {
